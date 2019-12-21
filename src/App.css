@@ -17,3 +17,7 @@ body {
   justify-content: space-evenly;
   align-items: center;
 }
+
+.rv-xy-plot__series--label-text {
+  fill: black;
+}

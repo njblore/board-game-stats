@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './App.css';
-import BarChartAverage from './Components/BarChartAverages';
 import scores from './data/scores.json';
 import PieCharts from './Components/PieCharts';
 

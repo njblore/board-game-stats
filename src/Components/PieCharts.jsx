@@ -15,7 +15,7 @@ const PieCharts = props => {
           tashVsThom={props.tashVsThom.filter(game => game.location === 'Asia')}
         ></TwoPlayerPie>
         <TwoPlayerPie
-          title={'Living In Asutralia'}
+          title={'Living In Australia'}
           tashVsThom={props.tashVsThom.filter(
             game => game.location === 'Australia',
           )}

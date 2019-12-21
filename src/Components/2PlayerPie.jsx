@@ -1,5 +1,6 @@
 import React from 'react';
 import { RadialChart } from 'react-vis';
+import { Doughnut } from 'react-chartjs-2';
 
 const TwoPlayerPie = props => {
   const maxes = props.tashVsThom.reduce((acc, game) => {
@@ -26,15 +27,26 @@ const TwoPlayerPie = props => {
     }
     return acc;
   }, {});
-  const data = [
-    { angle: maxes['Thom'], label: 'Thom Wins' },
-    { angle: maxes['Tash'], label: 'Tash Wins' },
-    { angle: maxes['draw'], label: 'Draw!' },
-  ];
+
+  const data = {
+    labels: [
+      `Thom Wins: ${maxes['Thom']}`,
+      `Tash Wins: ${maxes['Tash']}`,
+      `Draw: ${maxes['draw']}`,
+    ],
+    datasets: [
+      {
+        data: [maxes['Thom'], maxes['Tash'], maxes['draw']],
+        backgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+        hoverBackgroundColor: ['#36A2EB', '#FF6384', '#FFCE56'],
+      },
+    ],
+  };
+
   return (
     <div>
       <header>{props.title}</header>
-      <RadialChart data={data} width={300} height={300} showLabels={true} />
+      <Doughnut data={data}></Doughnut>
     </div>
   );
 };
