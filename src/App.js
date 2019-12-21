@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import scores from './data/scores.json';
 import PieCharts from './Components/PieCharts';
+import BarChartAverage from './Components/BarChartAverages';
 
 const App = () => {
   const overallTotals = scores.games.reduce((acc, game) => {
@@ -27,6 +28,8 @@ const App = () => {
   return (
     <div className="App">
       <PieCharts tashVsThom={tashVsThom}></PieCharts>
+      <BarChartAverage></BarChartAverage>
+      <BarChartAverage></BarChartAverage>
     </div>
   );
 };
