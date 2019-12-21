@@ -4,6 +4,8 @@ const Stats = props => {
   console.log(props.totals);
   let max = { name: '', score: 0 };
   let min = { name: '', score: 100 };
+  let overallTotal = 0;
+  let scoreCount = 0;
   for (let player in props.totals) {
     let playerBest = Math.max(...props.totals[player]);
     let playerWorst = Math.min(...props.totals[player]);
@@ -15,7 +17,13 @@ const Stats = props => {
       min.name = player;
       min.score = playerWorst;
     }
+    let playerTotal = props.totals[player].reduce(
+      (acc, score) => (acc += score),
+    );
+    overallTotal += playerTotal;
+    scoreCount += props.totals[player].length;
   }
+  let averageScore = overallTotal / scoreCount;
   return (
     <div className="stats-container">
       <header className="header stats-header">
@@ -36,7 +44,8 @@ const Stats = props => {
       </p>
       <p>
         The Highest score from all games was
-        <span className="stat-text"> {max.score}</span> scored by the amazing
+        <span className="stat-text"> {max.score}</span> scored by the
+        indefatigable
         <span className="stat-text"> {max.name}</span>!
       </p>
       <p>
@@ -44,6 +53,10 @@ const Stats = props => {
         <span className="stat-text"> {min.score}</span> scored by the
         unstoppable
         <span className="stat-text"> {min.name}</span>!
+      </p>
+      <p>
+        The average score across all games is as respectable
+        <span className="stat-text"> {averageScore.toFixed(2)}</span>
       </p>
     </div>
   );

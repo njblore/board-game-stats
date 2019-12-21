@@ -66,7 +66,7 @@ const CategoryAverage = props => {
     datasets: [
       {
         label: 'Thom',
-        backgroundColor: '#f81e8a',
+        backgroundColor: '#d23095',
         borderColor: 'black',
         borderWidth: 0.5,
         hoverBackgroundColor: '#f81e8a',

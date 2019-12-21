@@ -85,3 +85,10 @@ body {
   font-family: 'dominicaItalic';
   color: #bd7b1b;
 }
+
+.radial-container {
+  grid-row: 7 / span 2;
+  grid-column: 1 / span 2;
+  padding: 10px;
+  background: rgba(15, 141, 0, 0.1);
+}

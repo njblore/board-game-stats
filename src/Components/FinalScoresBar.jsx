@@ -26,19 +26,19 @@ const FinalScoresBar = props => {
     datasets: [
       {
         label: 'Thom',
-        backgroundColor: '#22d75f',
+        backgroundColor: '#f4bc77',
         borderColor: 'black',
         borderWidth: 0.5,
-        hoverBackgroundColor: '#22d75f',
+        hoverBackgroundColor: '#f4bc77',
         hoverBorderColor: 'black',
         data: scores['Thom'],
       },
       {
         label: 'Tash',
-        backgroundColor: 'pink',
+        backgroundColor: '#71c572',
         borderColor: 'black',
         borderWidth: 0.5,
-        hoverBackgroundColor: 'pink',
+        hoverBackgroundColor: '#71c572',
         hoverBorderColor: 'black',
         data: scores['Tash'],
       },

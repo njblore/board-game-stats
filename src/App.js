@@ -5,6 +5,7 @@ import PieCharts from './Components/PieCharts';
 import FinalScoresBar from './Components/FinalScoresBar';
 import CategoryAverage from './Components/CategoryAverages';
 import Stats from './Components/Stats';
+import MultiplayerRadial from './Components/MultiplayerRadial';
 
 const App = () => {
   const overallTotals = scores.games.reduce((acc, game) => {
@@ -38,6 +39,7 @@ const App = () => {
       <PieCharts tashVsThom={tashVsThom}></PieCharts>
       <FinalScoresBar scores={tashVsThom}></FinalScoresBar>
       <CategoryAverage scores={tashVsThom}></CategoryAverage>
+      <MultiplayerRadial multiplayer={multiplayer}></MultiplayerRadial>
     </div>
   );
 };
