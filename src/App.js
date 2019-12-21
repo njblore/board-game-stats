@@ -4,6 +4,7 @@ import scores from './data/scores.json';
 import PieCharts from './Components/PieCharts';
 import BarChartAverage from './Components/BarChartAverages';
 import agricola from './data/agricola.jpg';
+import CategoryAverage from './Components/CategoryAverages';
 
 const App = () => {
   const overallTotals = scores.games.reduce((acc, game) => {
@@ -31,6 +32,7 @@ const App = () => {
       <header className="page-header header">Agricola: The Scores</header>
       <PieCharts tashVsThom={tashVsThom}></PieCharts>
       <BarChartAverage scores={tashVsThom}></BarChartAverage>
+      <CategoryAverage scores={tashVsThom}></CategoryAverage>
     </div>
   );
 };

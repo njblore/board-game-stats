@@ -13,7 +13,6 @@ const BarChartAverage = props => {
 
       totals.map(game => {
         for (let player in game) {
-          console.log(player);
           acc[player] = [...acc[player], game[player]];
         }
       });

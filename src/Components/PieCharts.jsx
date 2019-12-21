@@ -9,7 +9,7 @@ const PieCharts = props => {
         <TwoPlayerPie
           title={'Travelling In Asia'}
           tashVsThom={props.tashVsThom.filter(game => game.location === 'Asia')}
-          backgroundColor={['green', 'yellow', 'orange']}
+          backgroundColor={['#43d123', 'yellow', 'orange']}
         ></TwoPlayerPie>
         <TwoPlayerPie
           title={'Un-Recorded Location'}
