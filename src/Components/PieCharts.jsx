@@ -4,7 +4,7 @@ import React from 'react';
 const PieCharts = props => {
   return (
     <div className="pie-container">
-      <header className="chart-header">HEAD 2 HEAD: Thom vs Tash</header>
+      <header className="header">HEAD 2 HEAD: Thom vs Tash</header>
       <div className="pie-grid">
         <TwoPlayerPie
           title={'Travelling In Asia'}
