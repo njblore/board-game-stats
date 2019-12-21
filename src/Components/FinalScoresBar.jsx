@@ -1,7 +1,7 @@
 import React from 'react';
-import { HorizontalBar, Bar } from 'react-chartjs-2';
+import { HorizontalBar } from 'react-chartjs-2';
 
-const BarChartAverage = props => {
+const FinalScoresBar = props => {
   const scores = props.scores.reduce(
     (acc, game) => {
       let totals = game.players.map(player => {
@@ -22,7 +22,7 @@ const BarChartAverage = props => {
     { Tash: [], Thom: [] },
   );
   const data = {
-    labels: props.scores.map(game => game.date),
+    labels: props.scores.map(game => game.date.split('/')),
     datasets: [
       {
         label: 'Thom',
@@ -47,10 +47,10 @@ const BarChartAverage = props => {
 
   return (
     <div className="bar-container">
-      <header className="header">2 Player Totals</header>
+      <header className="header">Final Scores</header>
       <HorizontalBar data={data} height={1000} />
     </div>
   );
 };
 
-export default BarChartAverage;
+export default FinalScoresBar;

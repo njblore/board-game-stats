@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './App.css';
 import scores from './data/scores.json';
 import PieCharts from './Components/PieCharts';
-import BarChartAverage from './Components/BarChartAverages';
-import agricola from './data/agricola.jpg';
+import FinalScoresBar from './Components/FinalScoresBar';
 import CategoryAverage from './Components/CategoryAverages';
+import Stats from './Components/Stats';
 
 const App = () => {
   const overallTotals = scores.games.reduce((acc, game) => {
@@ -29,9 +29,14 @@ const App = () => {
 
   return (
     <div className="App">
-      <header className="page-header header">Agricola: The Scores</header>
+      <header className="page-header header">Agricola: The Reckoning</header>
+      <Stats
+        totals={totals}
+        tashVsThom={tashVsThom}
+        multiplayer={multiplayer}
+      ></Stats>
       <PieCharts tashVsThom={tashVsThom}></PieCharts>
-      <BarChartAverage scores={tashVsThom}></BarChartAverage>
+      <FinalScoresBar scores={tashVsThom}></FinalScoresBar>
       <CategoryAverage scores={tashVsThom}></CategoryAverage>
     </div>
   );

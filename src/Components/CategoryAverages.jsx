@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bar, Polar } from 'react-chartjs-2';
+import { Bar, Polar, Radar } from 'react-chartjs-2';
 const CategoryAverage = props => {
   const categoryScores = props.scores.reduce(
     (acc, game) => {
@@ -49,7 +49,6 @@ const CategoryAverage = props => {
   let averages = { Thom: {}, Tash: {} };
   for (let player in categoryScores) {
     for (let category in categoryScores[player]) {
-      console.log(category, player);
       let total = categoryScores[player][category].reduce(
         (acc, score) => (acc += score),
       );
