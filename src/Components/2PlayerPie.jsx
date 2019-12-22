@@ -42,7 +42,7 @@ const TwoPlayerPie = props => {
 
   return (
     <div>
-      <header className="header">{props.title}</header>
+      <header className="header chart-header">{props.title}</header>
       <Doughnut data={data}></Doughnut>
     </div>
   );

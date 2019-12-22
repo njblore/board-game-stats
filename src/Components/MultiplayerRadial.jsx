@@ -2,7 +2,6 @@ import React from 'react';
 import { Polar } from 'react-chartjs-2';
 
 const MultiplayerRadial = props => {
-  console.log(props.multiplayer);
   let totals = props.multiplayer.reduce((acc, game) => {
     game.players.forEach(player => {
       const totalScore = Object.values(player.scores).reduce(
@@ -21,22 +20,21 @@ const MultiplayerRadial = props => {
     const averageScore = totalScore / totals[player].length;
     playerAverages[player] = averageScore.toFixed(2);
   }
-  console.log(Object.values(playerAverages));
   const data = {
     datasets: [
       {
         data: Object.values(playerAverages),
         backgroundColor: [
-          'red',
-          'green',
-          'white',
-          'purple',
-          'blue',
-          'yellow',
-          'orange',
           'pink',
+          'yellow',
+          '#14c017',
+          'blue',
+          'orange',
+          'purple',
+          'white',
+          'red',
         ],
-        label: '', // for legend
+        label: '',
       },
     ],
     labels: Object.keys(playerAverages),

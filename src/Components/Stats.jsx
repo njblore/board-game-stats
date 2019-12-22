@@ -1,7 +1,6 @@
 import React from 'react';
 import scores from '../data/scores.json';
 const Stats = props => {
-  console.log(props.totals);
   let max = { name: '', score: 0 };
   let min = { name: '', score: 100 };
   let overallTotal = 0;
