@@ -81,7 +81,7 @@ const CategoryAverage = props => {
   };
 
   return (
-    <div className="category-container">
+    <div className="category-container container">
       <header className="header">Category Averages</header>
       <div className="button-container">
         <button onClick={() => setPool(props.twoPlayer)}>Two Player</button>

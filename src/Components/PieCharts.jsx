@@ -3,7 +3,7 @@ import React from 'react';
 
 const PieCharts = props => {
   return (
-    <div className="pie-container">
+    <div className="pie-container container">
       <header className="header">HEAD 2 HEAD: Thom vs Tash</header>
       <div className="pie-grid">
         <TwoPlayerPie

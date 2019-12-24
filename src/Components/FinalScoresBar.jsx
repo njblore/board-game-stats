@@ -56,7 +56,7 @@ const FinalScoresBar = props => {
   };
 
   return (
-    <div className="bar-container">
+    <div className="bar-container container">
       <header className="header">Final Scores</header>
       <div className="button-container">
         <button onClick={() => setPool(props.twoPlayer)}>Two Player</button>

@@ -40,7 +40,7 @@ const MultiplayerRadial = props => {
     labels: Object.keys(playerAverages),
   };
   return (
-    <div className="radial-container">
+    <div className="radial-container container">
       <header className="header">Average Multiplayer Game Scores</header>
       <Polar data={data}></Polar>
     </div>

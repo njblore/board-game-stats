@@ -12,7 +12,6 @@ body {
 }
 
 .App {
-  display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: repeat(10, 20%);
   width: 90vw;
@@ -42,7 +41,7 @@ body {
 .header {
   text-align: center;
   font-family: 'dominica';
-  font-size: 1.3em;
+  font-size: 0.7em;
   color: black;
 }
 
@@ -51,7 +50,7 @@ body {
 }
 
 .page-header {
-  font-size: 3em;
+  font-size: 1.3em;
   color: #bd7b1b;
   grid-row: 1 / span 1;
   grid-column: 1 / span 4;
@@ -74,7 +73,7 @@ body {
 
 .stats-container {
   font-family: 'dominica';
-  font-size: 0.9em;
+  font-size: 0.7em;
   text-align: center;
   padding: 10px;
   grid-row: 2 / span 4;
@@ -83,11 +82,11 @@ body {
   background: rgba(171, 0, 251, 0.1);
 }
 .stats-header {
-  font-size: 1.3em;
+  font-size: 1.2em;
   color: black;
 }
 .stat-text {
-  font-size: 1.8em;
+  font-size: 1.1em;
   font-family: 'dominicaItalic';
   color: #bd7b1b;
 }
@@ -107,7 +106,7 @@ body {
 
 .button-container {
   display: flex;
-  width: 100%;
+  max-width: 100%;
   justify-content: space-around;
   margin: 5px auto;
 }
@@ -118,4 +117,28 @@ button {
   background: palegoldenrod;
   font-family: dominica;
   font-size: 0.7em;
+}
+
+@media screen and (min-width: 500px) {
+  .App {
+    display: grid;
+  }
+  .header {
+    font-size: 1.3em;
+  }
+  .page-header {
+    font-size: 3em;
+  }
+  .stats-container {
+    font-size: 0.9em;
+  }
+  .stats-header {
+    font-size: 1.3em;
+  }
+  .stat-text {
+    font-size: 1.8em;
+  }
+  .container {
+    margin: 10px 0;
+  }
 }

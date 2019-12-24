@@ -24,7 +24,7 @@ const Stats = props => {
   }
   let averageScore = overallTotal / scoreCount;
   return (
-    <div className="stats-container">
+    <div className="stats-container container">
       <header className="header stats-header">
         Some stats from our Agricola Games
       </header>

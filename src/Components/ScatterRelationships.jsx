@@ -107,7 +107,7 @@ const ScatterRelationships = props => {
   };
 
   return (
-    <div className="scatter-container">
+    <div className="scatter-container container">
       <header className="header">Scattered Relationships</header>
       <Bar data={data} options={options}></Bar>
       <div className="button-container">
