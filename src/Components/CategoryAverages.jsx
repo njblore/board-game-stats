@@ -55,12 +55,12 @@ const CategoryAverage = props => {
     return Object.values(averages[name]);
   };
   const colours = [
-    'pink',
+    '#ff57bd',
     'yellow',
     '#14c017',
-    'blue',
+    '#2b74fe',
     'orange',
-    'purple',
+    '#9814c0',
     'white',
     'red',
   ];

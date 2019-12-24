@@ -82,12 +82,12 @@ const ScatterRelationships = props => {
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map(score => score.x),
         fill: false,
-        borderColor: '#EC932F',
-        backgroundColor: '#EC932F',
-        pointBorderColor: '#EC932F',
-        pointBackgroundColor: '#EC932F',
-        pointHoverBackgroundColor: '#EC932F',
-        pointHoverBorderColor: '#EC932F',
+        borderColor: 'orange',
+        backgroundColor: 'yellow',
+        pointBorderColor: 'orange',
+        pointBackgroundColor: 'yellow',
+        pointHoverBackgroundColor: 'limegreen',
+        pointHoverBorderColor: 'green',
         yAxisID: 'y-axis-2',
       },
       {

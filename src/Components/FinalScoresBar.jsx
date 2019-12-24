@@ -29,7 +29,16 @@ const FinalScoresBar = props => {
 
     return acc;
   }, blankScores);
-  const colours = ['#8d6fef', '#ff57bd', '#19da1c'];
+  const colours = [
+    '#8d6fef',
+    '#ff57bd',
+    '#19da1c',
+    '#2b74fe',
+    'orange',
+    '#9814c0',
+    'white',
+    'red',
+  ];
   const sets = players.map((player, i) => {
     return {
       label: player,

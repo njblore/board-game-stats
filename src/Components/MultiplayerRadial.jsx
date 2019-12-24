@@ -25,12 +25,12 @@ const MultiplayerRadial = props => {
       {
         data: Object.values(playerAverages),
         backgroundColor: [
-          'pink',
+          '#ff57bd',
           'yellow',
           '#14c017',
-          'blue',
+          '#2b74fe',
           'orange',
-          'purple',
+          '#9814c0',
           'white',
           'red',
         ],
