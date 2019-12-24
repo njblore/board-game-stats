@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/project-yule/static/css/main.7c744dc4.chunk.css",
+    "main.js": "/project-yule/static/js/main.5c6b2e26.chunk.js",
+    "main.js.map": "/project-yule/static/js/main.5c6b2e26.chunk.js.map",
+    "runtime-main.js": "/project-yule/static/js/runtime-main.243a31e2.js",
+    "runtime-main.js.map": "/project-yule/static/js/runtime-main.243a31e2.js.map",
+    "static/js/2.6533a228.chunk.js": "/project-yule/static/js/2.6533a228.chunk.js",
+    "static/js/2.6533a228.chunk.js.map": "/project-yule/static/js/2.6533a228.chunk.js.map",
+    "index.html": "/project-yule/index.html",
+    "precache-manifest.f15f4528e72210bbc79af9ea1825ff82.js": "/project-yule/precache-manifest.f15f4528e72210bbc79af9ea1825ff82.js",
+    "service-worker.js": "/project-yule/service-worker.js",
+    "static/css/main.7c744dc4.chunk.css.map": "/project-yule/static/css/main.7c744dc4.chunk.css.map",
+    "static/js/2.6533a228.chunk.js.LICENSE": "/project-yule/static/js/2.6533a228.chunk.js.LICENSE",
+    "static/media/App.css": "/project-yule/static/media/DOMISC__.0003423b.TTF"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.243a31e2.js",
+    "static/js/2.6533a228.chunk.js",
+    "static/css/main.7c744dc4.chunk.css",
+    "static/js/main.5c6b2e26.chunk.js"
+  ]
+}
