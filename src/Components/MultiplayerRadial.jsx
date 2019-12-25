@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Polar } from 'react-chartjs-2';
 
 const MultiplayerRadial = props => {
-  let totals = props.multiplayer.reduce((acc, game) => {
+  const [set, setSet] = useState(props.multiplayer);
+  console.log(props.allGames);
+  let totals = set.reduce((acc, game) => {
     game.players.forEach(player => {
       const totalScore = Object.values(player.scores).reduce(
         (sum, score) => (sum += score),
@@ -41,8 +43,13 @@ const MultiplayerRadial = props => {
   };
   return (
     <div className="radial-container container">
-      <header className="header">Average Multiplayer Game Scores</header>
+      <header className="header">Average Game Scores</header>
       <Polar data={data}></Polar>
+      <div className="button-container">
+        <button onClick={() => setSet(props.twoPlayer)}>Two Player</button>
+        <button onClick={() => setSet(props.multiplayer)}>Mutliplayer</button>
+        <button onClick={() => setSet(props.allGames)}>All Games</button>
+      </div>
     </div>
   );
 };

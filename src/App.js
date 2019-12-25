@@ -48,7 +48,11 @@ const App = () => {
         twoPlayer={tashVsThom}
         multiplayer={multiplayer}
       ></CategoryAverage>
-      <MultiplayerRadial multiplayer={multiplayer}></MultiplayerRadial>
+      <MultiplayerRadial
+        multiplayer={multiplayer}
+        twoPlayer={tashVsThom}
+        allGames={scores.games}
+      ></MultiplayerRadial>
       <ScatterRelationships></ScatterRelationships>
     </div>
   );
