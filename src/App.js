@@ -7,19 +7,10 @@ import CategoryAverage from './Components/CategoryAverages';
 import Stats from './Components/Stats';
 import MultiplayerRadial from './Components/MultiplayerRadial';
 import ScatterRelationships from './Components/ScatterRelationships';
+import { scoresForEachPlayer } from './helpers/scoreCalculations';
 
 const App = () => {
-  const overallTotals = scores.games.reduce((acc, game) => {
-    game.players.forEach(player => {
-      const totalScore = Object.values(player.scores).reduce(
-        (sum, score) => (sum += score),
-      );
-      acc[player.name] = acc[player.name]
-        ? [...acc[player.name], totalScore]
-        : [totalScore];
-    });
-    return acc;
-  }, {});
+  const overallTotals = scoresForEachPlayer(scores.games);
 
   const [totals, setTotals] = useState(overallTotals);
   const [tashVsThom, setTashVsThom] = useState(

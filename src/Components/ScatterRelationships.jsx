@@ -1,27 +1,14 @@
 import React, { useState } from 'react';
 import scores from '../data/scores.json';
 import { Bar } from 'react-chartjs-2';
+import { dataPointForTopic } from '../helpers/chartDataManipulation.js';
 
 const ScatterRelationships = props => {
   const [topic, setTopic] = useState('family members');
-  const generateData = topic => {
-    return scores.games.reduce((acc, game) => {
-      game.players.forEach(player => {
-        const totalScore = Object.values(player.scores).reduce(
-          (sum, score) => (sum += score),
-        );
-        acc.push({
-          y: player.scores[topic].toFixed(0),
-          x: totalScore,
-        });
-      });
-      return acc;
-    }, []);
-  };
 
   const options = {
     responsive: true,
-    labels: generateData('family members')
+    labels: dataPointForTopic('family members', scores.games)
       .sort((a, b) => (a.x > b.x ? 1 : -1))
       .map(score => score.y),
     tooltips: {
@@ -39,7 +26,7 @@ const ScatterRelationships = props => {
           gridLines: {
             display: false,
           },
-          labels: generateData('family members')
+          labels: dataPointForTopic('family members', scores.games)
             .sort((a, b) => (a.x > b.x ? 1 : -1))
             .map(score => score.x),
         },
@@ -78,7 +65,7 @@ const ScatterRelationships = props => {
       {
         label: 'Score',
         type: 'line',
-        data: generateData(topic)
+        data: dataPointForTopic(topic, scores.games)
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map(score => score.x),
         fill: false,
@@ -93,7 +80,7 @@ const ScatterRelationships = props => {
       {
         type: 'bar',
         label: topic,
-        data: generateData(topic)
+        data: dataPointForTopic(topic, scores.games)
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map(score => score.y),
         fill: false,

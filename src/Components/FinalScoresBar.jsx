@@ -1,34 +1,13 @@
 import React, { useState } from 'react';
 import { HorizontalBar } from 'react-chartjs-2';
+import { getPlayers } from '../helpers/getPlayers';
+import { scoresForEachPlayer } from '../helpers/scoreCalculations';
 
 const FinalScoresBar = props => {
   const [pool, setPool] = useState(props.twoPlayer);
-  const players = pool.reduce((acc, game) => {
-    game.players.forEach(player => {
-      !acc.includes(player.name) && acc.push(player.name);
-    });
-    return acc;
-  }, []);
-  const blankScores = players.reduce((acc, player) => {
-    acc[player] = [];
-    return acc;
-  }, {});
-  const scores = pool.reduce((acc, game) => {
-    let totals = game.players.map(player => {
-      const totalScore = Object.values(player.scores).reduce(
-        (sum, score) => (sum += score),
-      );
-      return { [player.name]: totalScore };
-    });
+  const players = getPlayers(pool);
+  const scores = scoresForEachPlayer(pool);
 
-    totals.map(game => {
-      for (let player in game) {
-        acc[player] = [...acc[player], game[player]];
-      }
-    });
-
-    return acc;
-  }, blankScores);
   const colours = [
     '#8d6fef',
     '#ff57bd',

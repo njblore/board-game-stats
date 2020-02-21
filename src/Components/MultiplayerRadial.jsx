@@ -1,27 +1,15 @@
 import React, { useState } from 'react';
 import { Polar } from 'react-chartjs-2';
+import {
+  scoresForEachPlayer,
+  averageScoresFromObject,
+} from '../helpers/scoreCalculations';
 
 const MultiplayerRadial = props => {
   const [set, setSet] = useState(props.multiplayer);
-  console.log(props.allGames);
-  let totals = set.reduce((acc, game) => {
-    game.players.forEach(player => {
-      const totalScore = Object.values(player.scores).reduce(
-        (sum, score) => (sum += score),
-      );
-      acc[player.name] = acc[player.name]
-        ? [...acc[player.name], totalScore]
-        : [totalScore];
-    });
-    return acc;
-  }, {});
-  let playerAverages = {};
+  let allScores = scoresForEachPlayer(set);
+  let playerAverages = averageScoresFromObject(allScores);
 
-  for (let player in totals) {
-    const totalScore = totals[player].reduce((acc, score) => (acc += score));
-    const averageScore = totalScore / totals[player].length;
-    playerAverages[player] = averageScore.toFixed(2);
-  }
   const data = {
     datasets: [
       {

@@ -1,14 +1,10 @@
 import React from 'react';
 import { Doughnut } from 'react-chartjs-2';
+import { totalScoresForGame } from '../helpers/scoreCalculations';
 
 const TwoPlayerPie = props => {
   const maxes = props.tashVsThom.reduce((acc, game) => {
-    let totals = game.players.map(player => {
-      const totalScore = Object.values(player.scores).reduce(
-        (sum, score) => (sum += score),
-      );
-      return { score: totalScore, player: player.name };
-    });
+    let totals = totalScoresForGame(game.players);
 
     let totalScoreArray = totals.map(player => player.score);
     let highScore = Math.max(...totalScoreArray);

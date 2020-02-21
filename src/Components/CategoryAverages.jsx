@@ -1,46 +1,22 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
+import { getPlayers } from '../helpers/getPlayers';
+import { blankScoreSheet } from '../helpers/scoreSheet';
+import { categoryScoresForEachPlayer } from '../helpers/scoreCalculations';
+
 const CategoryAverage = props => {
   const [pool, setPool] = useState(props.scores.games);
-  const players = pool.reduce((acc, game) => {
-    game.players.forEach(player => {
-      !acc.includes(player.name) && acc.push(player.name);
-    });
-    return acc;
-  }, []);
-  const blankScores = players.reduce((acc, player) => {
-    acc[player] = {
-      fields: [],
-      pastures: [],
-      grain: [],
-      vegetables: [],
-      sheep: [],
-      'wild boar': [],
-      cattle: [],
-      'unused spaces': [],
-      'fenced stables': [],
-      'clay rooms': [],
-      'stone rooms': [],
-      'family members': [],
-      'points for cards': [],
-      'bonus points': [],
-    };
-    return acc;
-  }, {});
-  const categoryScores = pool.reduce((acc, game) => {
-    game.players.forEach(player => {
-      for (let category in player.scores) {
-        acc[player.name][category]
-          ? acc[player.name][category].push(player.scores[category])
-          : (acc[player.name][category] = [player.scores[category]]);
-      }
-    });
-    return acc;
-  }, blankScores);
+  const players = getPlayers(pool);
+
+  const blankScores = blankScoreSheet(players);
+
+  const categoryScores = categoryScoresForEachPlayer(pool, blankScores);
+
   let averages = players.reduce((acc, player) => {
     acc[player] = {};
     return acc;
   }, {});
+
   for (let player in categoryScores) {
     for (let category in categoryScores[player]) {
       let total = categoryScores[player][category].reduce(
@@ -50,6 +26,7 @@ const CategoryAverage = props => {
       averages[player][category] = avg.toFixed(2);
     }
   }
+
   const categories = Object.keys(averages.Thom);
   const getAverages = name => {
     return Object.values(averages[name]);

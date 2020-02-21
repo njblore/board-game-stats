@@ -1,5 +1,6 @@
 import React from 'react';
 import scores from '../data/scores.json';
+import { totalScore } from '../helpers/scoreCalculations.js';
 const Stats = props => {
   let max = { name: '', score: 0 };
   let min = { name: '', score: 100 };
@@ -16,9 +17,7 @@ const Stats = props => {
       min.name = player;
       min.score = playerWorst;
     }
-    let playerTotal = props.totals[player].reduce(
-      (acc, score) => (acc += score),
-    );
+    let playerTotal = totalScore(props.totals[player]);
     overallTotal += playerTotal;
     scoreCount += props.totals[player].length;
   }
