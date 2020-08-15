@@ -9,6 +9,8 @@ import { scoresForEachPlayer } from "../helpers/scoreCalculations";
 import axios from "axios";
 import { GameScore } from "../models/game";
 import { PlayerAllScores } from "../models/playerScore";
+import lover from "../images/lover.jpg";
+import agricola from "../images/agricola_boardgame_main.jpg";
 
 const AgricolaPage = () => {
   const [allGames, setAllGames] = useState<GameScore[]>();
@@ -47,7 +49,15 @@ const AgricolaPage = () => {
   if (!isLoading) {
     return (
       <div className="agricola-page-container">
-        <header className="page-header header">Agricola: The Reckoning</header>
+        <div className="page-header header">
+          <div className="image-container">
+            <img src={agricola}></img>
+          </div>
+          <header>Agricola: The Reckoning</header>
+          <div className="image-container">
+            <img src={lover}></img>
+          </div>
+        </div>
         <Stats
           totals={totals}
           tashVsThom={tashVsThom}

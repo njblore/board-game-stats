@@ -68,6 +68,21 @@ body {
   grid-row: 1 / span 1;
   grid-column: 1 / span 4;
   align-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-container {
+  height: 100px;
+  width: 100px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+img {
+  height: 100%;
+  width: auto;
 }
 
 .bar-container {
@@ -154,6 +169,10 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: min-content;
     gap: 20px;
+  }
+  .image-container {
+    height: 200px;
+    width: 200px;
   }
   .header {
     font-size: 1.3em;
