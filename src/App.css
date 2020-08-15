@@ -20,12 +20,11 @@ body {
 }
 
 .App {
+  padding-bottom: 5vh;
 }
-
 .agricola-page-container {
   width: 90vw;
   margin: 0 auto;
-  padding-bottom: 5vh;
 }
 
 .pie-container {
@@ -75,12 +74,16 @@ body {
   grid-row: 4;
   grid-column: 1 / span 4;
   background: white;
+  border: 2px solid palevioletred;
+  border-radius: 5px;
 }
 
 .category-container {
   grid-row: 3;
   grid-column: 1 / span 2;
   background: white;
+  border: 2px solid gold;
+  border-radius: 5px;
 }
 
 .stats-container {
@@ -91,7 +94,7 @@ body {
   grid-column: 1;
   color: darkslategrey;
   background: white;
-  border: 2px solid olivedrab;
+  border: 2px solid lightgreen;
   border-radius: 5px;
 }
 .stats-header {
@@ -125,6 +128,8 @@ body {
   grid-row: 3;
   grid-column: 3 / span 2;
   background: white;
+  border: 2px solid lightseagreen;
+  border-radius: 5px;
 }
 
 .button-container {
@@ -137,7 +142,7 @@ body {
 .agricola-button {
   border: 2pt solid black;
   border-radius: 5px;
-  background: palegoldenrod;
+  background: lightblue;
   font-family: "dominica";
   font-size: 0.7em;
 }
