@@ -38,9 +38,24 @@ const FinalScoresBar = (props) => {
     <div className="bar-container container">
       <header className="header">Final Scores</header>
       <div className="button-container">
-        <button onClick={() => setPool(props.twoPlayer)}>Two Player</button>
-        <button onClick={() => setPool(props.multiplayer)}>Multiplayer</button>
-        <button onClick={() => setPool(props.scores.games)}>All Games</button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.twoPlayer)}
+        >
+          Two Player
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.multiplayer)}
+        >
+          Multiplayer
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.games)}
+        >
+          All Games
+        </button>
       </div>
       <Bar data={data} />
     </div>

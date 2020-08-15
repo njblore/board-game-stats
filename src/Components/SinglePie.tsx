@@ -1,12 +1,13 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import { SinglePlayerScore } from "../models/playerScore";
 
 const PieChart = (props) => {
   const labels = Object.keys(props.scores).map((player) => {
     return player === "draw" ? "Draw" : `${player} Wins`;
   });
   const scoresData = Object.values(props.scores);
-  console.log(scoresData);
+
   const data = {
     labels,
     datasets: [
@@ -30,11 +31,11 @@ const PieChart = (props) => {
     },
   };
 
-  const totalGames = Object.values(props.scores).reduce(
+  const totalGames = Object.values(props.scores as SinglePlayerScore).reduce(
     (acc, val) => (acc += val)
   );
 
-  const winPercentages = Object.entries(props.scores).map(
+  const winPercentages = Object.entries(props.scores as SinglePlayerScore).map(
     ([player, winCount]) => {
       return player === "draw"
         ? `${Math.floor(

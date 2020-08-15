@@ -1,50 +1,22 @@
 import React, { useState } from "react";
 import "./App.css";
-import scores from "./data/scores.json";
-import PieCharts from "./Components/PieCharts";
-import FinalScoresBar from "./Components/FinalScoresBar";
-import CategoryAverage from "./Components/CategoryAverages";
-import Stats from "./Components/Stats";
-import MultiplayerRadial from "./Components/MultiplayerRadial";
-import ScatterRelationships from "./Components/ScatterRelationships";
-import { scoresForEachPlayer } from "./helpers/scoreCalculations";
+import AgricolaPage from "./Components/AgricolaPage";
+import TerraformingMarsPage from "./Components/TerraformingMarsPage";
 
 const App = () => {
-  const overallTotals = scoresForEachPlayer(scores.games);
-
-  const [totals, setTotals] = useState(overallTotals);
-  const [tashVsThom, setTashVsThom] = useState(
-    scores.games.filter((game) => game.players.length === 2)
-  );
-  const [multiplayer, setMultiplayer] = useState(
-    scores.games.filter((game) => game.players.length > 2)
-  );
-
+  const [view, setView] = useState("Agricola");
   return (
     <div className="App">
-      <header className="page-header header">Agricola: The Reckoning</header>
-      <Stats
-        totals={totals}
-        tashVsThom={tashVsThom}
-        multiplayer={multiplayer}
-      ></Stats>
-      <PieCharts tashVsThom={tashVsThom}></PieCharts>
-      <FinalScoresBar
-        scores={scores}
-        twoPlayer={tashVsThom}
-        multiplayer={multiplayer}
-      ></FinalScoresBar>
-      <CategoryAverage
-        scores={scores}
-        twoPlayer={tashVsThom}
-        multiplayer={multiplayer}
-      ></CategoryAverage>
-      <MultiplayerRadial
-        multiplayer={multiplayer}
-        twoPlayer={tashVsThom}
-        allGames={scores.games}
-      ></MultiplayerRadial>
-      <ScatterRelationships></ScatterRelationships>
+      <nav>
+        <button onClick={() => setView("Agricola")}>Agricola</button>
+        <button onClick={() => setView("TerraformingMars")}>
+          Terraforming Mars
+        </button>
+      </nav>
+      {view === "Agricola" && <AgricolaPage></AgricolaPage>}
+      {view === "TerraformingMars" && (
+        <TerraformingMarsPage></TerraformingMarsPage>
+      )}
     </div>
   );
 };

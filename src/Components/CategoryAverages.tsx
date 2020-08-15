@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
-import { blankScoreSheet } from "../helpers/scoreSheet";
+import { blankScoreSheet, PlayerCategoryScores } from "../helpers/scoreSheet";
 import { categoryScoresForEachPlayer } from "../helpers/scoreCalculations";
 
 const CategoryAverage = (props) => {
-  const [pool, setPool] = useState(props.scores.games);
+  const [pool, setPool] = useState(props.games);
   const players = getPlayers(pool);
 
-  const blankScores = blankScoreSheet(players);
+  const blankScores: PlayerCategoryScores = blankScoreSheet(players);
+  const categoryScores: PlayerCategoryScores = categoryScoresForEachPlayer(
+    pool,
+    blankScores
+  );
 
-  const categoryScores = categoryScoresForEachPlayer(pool, blankScores);
-
-  let averages = players.reduce((acc, player) => {
+  let averages: PlayerCategoryScores = players.reduce((acc, player) => {
     acc[player] = {};
     return acc;
   }, {});
@@ -29,7 +31,9 @@ const CategoryAverage = (props) => {
 
   const categories = Object.keys(averages.Thom);
   const getAverages = (name) => {
-    return Object.values(averages[name]);
+    return Object.entries(averages[name])
+      .filter(([category, _]) => category !== "total")
+      .map(([_, value]) => value);
   };
   const colours = [
     "#ff57bd",
@@ -53,7 +57,7 @@ const CategoryAverage = (props) => {
     };
   });
   const data = {
-    labels: categories,
+    labels: categories.filter((category) => category !== "total"),
     datasets: sets,
   };
 
@@ -61,9 +65,24 @@ const CategoryAverage = (props) => {
     <div className="category-container container">
       <header className="header">Category Averages</header>
       <div className="button-container">
-        <button onClick={() => setPool(props.twoPlayer)}>Two Player</button>
-        <button onClick={() => setPool(props.multiplayer)}>Multiplayer</button>
-        <button onClick={() => setPool(props.scores.games)}>All Games</button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.twoPlayer)}
+        >
+          Two Player
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.multiplayer)}
+        >
+          Multiplayer
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setPool(props.games)}
+        >
+          All Games
+        </button>
       </div>
       <Bar data={data}></Bar>
     </div>

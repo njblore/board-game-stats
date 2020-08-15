@@ -8,6 +8,7 @@ import {
 const MultiplayerRadial = (props) => {
   const [set, setSet] = useState(props.multiplayer);
   let allScores = scoresForEachPlayer(set);
+
   let playerAverages = averageScoresFromObject(allScores);
 
   const data = {
@@ -43,9 +44,24 @@ const MultiplayerRadial = (props) => {
       <header className="header">Average Game Scores</header>
 
       <div className="button-container">
-        <button onClick={() => setSet(props.twoPlayer)}>Two Player</button>
-        <button onClick={() => setSet(props.multiplayer)}>Mutliplayer</button>
-        <button onClick={() => setSet(props.allGames)}>All Games</button>
+        <button
+          className="agricola-button"
+          onClick={() => setSet(props.twoPlayer)}
+        >
+          Two Player
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setSet(props.multiplayer)}
+        >
+          Mutliplayer
+        </button>
+        <button
+          className="agricola-button"
+          onClick={() => setSet(props.allGames)}
+        >
+          All Games
+        </button>
       </div>
       <Polar data={data} legend={legendOpts}></Polar>
     </div>

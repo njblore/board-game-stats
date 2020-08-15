@@ -1,9 +1,8 @@
-import React from 'react';
-import scores from '../data/scores.json';
-import { totalScore } from '../helpers/scoreCalculations.js';
-const Stats = props => {
-  let max = { name: '', score: 0 };
-  let min = { name: '', score: 100 };
+import React from "react";
+import { totalScore } from "../helpers/scoreCalculations";
+const Stats = (props) => {
+  let max = { name: "", score: 0 };
+  let min = { name: "", score: 100 };
   let overallTotal = 0;
   let scoreCount = 0;
   for (let player in props.totals) {
@@ -17,7 +16,8 @@ const Stats = props => {
       min.name = player;
       min.score = playerWorst;
     }
-    let playerTotal = totalScore(props.totals[player]);
+
+    let playerTotal = props.totals[player].reduce((a, v) => (a += v));
     overallTotal += playerTotal;
     scoreCount += props.totals[player].length;
   }
@@ -29,7 +29,7 @@ const Stats = props => {
       </header>
       <p>
         Total Games Recorded:
-        <span className="stat-text"> {scores.games.length}</span>
+        <span className="stat-text"> {props.allGames.length}</span>
       </p>
       <p>
         Of those games,

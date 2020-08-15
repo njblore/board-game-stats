@@ -11,8 +11,8 @@ const PieCharts = (props) => {
         backgroundColor={["#36A2EB", "#FF6384", "#FFCE56"]}
       ></PieChart>
       {/* <div className="button-container">
-        <button onClick={() => setPool(props.twoPlayer)}>Two Player</button>
-        <button onClick={() => setPool(props.multiplayer)}>Multiplayer</button>
+        <button className="agricola-button" onClick={() => setPool(props.twoPlayer)}>Two Player</button>
+        <button className="agricola-button" onClick={() => setPool(props.multiplayer)}>Multiplayer</button>
       </div> */}
     </div>
   );

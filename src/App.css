@@ -20,10 +20,14 @@ body {
 }
 
 .App {
+}
+
+.agricola-page-container {
   width: 90vw;
   margin: 0 auto;
   padding-bottom: 5vh;
 }
+
 .pie-container {
   display: flex;
   flex-direction: column;
@@ -130,7 +134,7 @@ body {
   padding: 10px 0;
 }
 
-button {
+.agricola-button {
   border: 2pt solid black;
   border-radius: 5px;
   background: palegoldenrod;
@@ -139,7 +143,7 @@ button {
 }
 
 @media screen and (min-width: 1200px) {
-  .App {
+  .agricola-page-container {
     height: 100vh;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
