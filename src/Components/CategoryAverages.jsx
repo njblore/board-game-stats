@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
-import { getPlayers } from '../helpers/getPlayers';
-import { blankScoreSheet } from '../helpers/scoreSheet';
-import { categoryScoresForEachPlayer } from '../helpers/scoreCalculations';
+import React, { useState } from "react";
+import { Bar } from "react-chartjs-2";
+import { getPlayers } from "../helpers/getPlayers";
+import { blankScoreSheet } from "../helpers/scoreSheet";
+import { categoryScoresForEachPlayer } from "../helpers/scoreCalculations";
 
-const CategoryAverage = props => {
+const CategoryAverage = (props) => {
   const [pool, setPool] = useState(props.scores.games);
   const players = getPlayers(pool);
 
@@ -20,7 +20,7 @@ const CategoryAverage = props => {
   for (let player in categoryScores) {
     for (let category in categoryScores[player]) {
       let total = categoryScores[player][category].reduce(
-        (acc, score) => (acc += score),
+        (acc, score) => (acc += score)
       );
       let avg = total / categoryScores[player][category].length;
       averages[player][category] = avg.toFixed(2);
@@ -28,27 +28,27 @@ const CategoryAverage = props => {
   }
 
   const categories = Object.keys(averages.Thom);
-  const getAverages = name => {
+  const getAverages = (name) => {
     return Object.values(averages[name]);
   };
   const colours = [
-    '#ff57bd',
-    'yellow',
-    '#14c017',
-    '#2b74fe',
-    'orange',
-    '#9814c0',
-    'white',
-    'red',
+    "#ff57bd",
+    "yellow",
+    "#14c017",
+    "#2b74fe",
+    "orange",
+    "#9814c0",
+    "white",
+    "red",
   ];
   const sets = players.map((player, i) => {
     return {
       label: player,
       backgroundColor: colours[i],
-      borderColor: 'black',
+      borderColor: "black",
       borderWidth: 0.5,
       hoverBackgroundColor: colours[i],
-      hoverBorderColor: 'black',
+      hoverBorderColor: "black",
       data: getAverages(player),
     };
   });

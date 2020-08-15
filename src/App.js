@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import './App.css';
-import scores from './data/scores.json';
-import PieCharts from './Components/PieCharts';
-import FinalScoresBar from './Components/FinalScoresBar';
-import CategoryAverage from './Components/CategoryAverages';
-import Stats from './Components/Stats';
-import MultiplayerRadial from './Components/MultiplayerRadial';
-import ScatterRelationships from './Components/ScatterRelationships';
-import { scoresForEachPlayer } from './helpers/scoreCalculations';
+import React, { useState } from "react";
+import "./App.css";
+import scores from "./data/scores.json";
+import PieCharts from "./Components/PieCharts";
+import FinalScoresBar from "./Components/FinalScoresBar";
+import CategoryAverage from "./Components/CategoryAverages";
+import Stats from "./Components/Stats";
+import MultiplayerRadial from "./Components/MultiplayerRadial";
+import ScatterRelationships from "./Components/ScatterRelationships";
+import { scoresForEachPlayer } from "./helpers/scoreCalculations";
 
 const App = () => {
   const overallTotals = scoresForEachPlayer(scores.games);
 
   const [totals, setTotals] = useState(overallTotals);
   const [tashVsThom, setTashVsThom] = useState(
-    scores.games.filter(game => game.players.length === 2),
+    scores.games.filter((game) => game.players.length === 2)
   );
   const [multiplayer, setMultiplayer] = useState(
-    scores.games.filter(game => game.players.length > 2),
+    scores.games.filter((game) => game.players.length > 2)
   );
 
   return (
