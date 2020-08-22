@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import { ScoreSheet } from "../helpers/scoreSheet";
-import { CategoryScore } from "../models/categoryScore";
 import { blankPlayerScoreSheet, PlayerScore } from "../models/playerScore";
 
 interface Props {

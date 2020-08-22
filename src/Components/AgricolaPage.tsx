@@ -19,14 +19,15 @@ const AgricolaPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    const pword = process.env.REACT_APP_API_KEY;
+
     const fetchData = async () => {
       setIsLoading(true);
       const result = await axios(
         "https://api.jsonbin.io/b/5ea01b9b2940c704e1dc9684/latest",
         {
           headers: {
-            "secret-key":
-              "$2b$10$tVk/rIX8TJ15Zm5Oghjz1.0zwMVyQyzIUggpp/cngra1xISpd9N/q",
+            "secret-key": `$2b$10$tVk${pword}`,
           },
         }
       );

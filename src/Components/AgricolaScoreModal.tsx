@@ -3,6 +3,8 @@ import { blankPlayerScoreSheet, PlayerScore } from "../models/playerScore";
 import AgricolaScoreSheet from "./AgricolaScoreSheet";
 
 const AgricolaScoreModal = (props) => {
+  const [errors, setErrors] = useState({ date: false });
+
   const [player1Form, setPlayer1Form] = useState<PlayerScore>(
     blankPlayerScoreSheet
   );
@@ -19,6 +21,10 @@ const AgricolaScoreModal = (props) => {
     blankPlayerScoreSheet
   );
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
+  const [activePlayerForms, setActivePlayerForms] = useState<PlayerScore[]>([
+    player1Form,
+    player2Form,
+  ]);
   const allPlayerForms = [
     player1Form,
     player2Form,
@@ -26,6 +32,23 @@ const AgricolaScoreModal = (props) => {
     player4Form,
     player5Form,
   ];
+
+  const validateDate = (dateString: string) => {
+    const dateRegex = /[0-3]\d[\/|\-][0-1]\d[\/|\-][1-2]\d\d\d/;
+
+    if (!dateString.match(dateRegex)) {
+      setErrors({ date: true });
+    } else {
+      const [day, month, year] = dateString.split(new RegExp("/|-"));
+      const date = new Date(Number(year), Number(month) - 1, Number(day));
+
+      if (!date.getDate()) {
+        setErrors({ date: true });
+      } else {
+        setErrors({ date: false });
+      }
+    }
+  };
 
   const handleSubmit = () => {};
 
@@ -51,6 +74,7 @@ const AgricolaScoreModal = (props) => {
 
   const handleNumberOfPlayers = (numOfPlayers: number) => {
     setNumberOfPlayers(numOfPlayers);
+    setActivePlayerForms(allPlayerForms.slice(0, numOfPlayers));
   };
 
   return (
@@ -60,12 +84,21 @@ const AgricolaScoreModal = (props) => {
         <div className="form-metadata-container">
           <div className="game-info-container">
             <label>
-              Date: <input type="text"></input>
+              Date:{" "}
+              <input
+                type="text"
+                onChange={(e) => validateDate(e.target.value)}
+              ></input>
             </label>
             <label>
               Location: <input type="text"></input>
             </label>
           </div>
+          {errors.date && (
+            <p className="error-message">
+              Please enter a date in the format dd/mm/yyyy
+            </p>
+          )}
           <div className="player-radio-container">
             <label>
               <input
@@ -115,7 +148,7 @@ const AgricolaScoreModal = (props) => {
           </div>
         </div>
         <div className="score-input-container">
-          {allPlayerForms.slice(0, numberOfPlayers).map((playerForm, index) => (
+          {activePlayerForms.map((playerForm, index) => (
             <AgricolaScoreSheet
               playerScores={playerForm}
               updateForm={(value) => handlePlayerScores(value, index + 1)}
