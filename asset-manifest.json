@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/project-yule/static/css/main.47a44623.chunk.css",
-    "main.js": "/project-yule/static/js/main.7d531faf.chunk.js",
-    "main.js.map": "/project-yule/static/js/main.7d531faf.chunk.js.map",
-    "runtime-main.js": "/project-yule/static/js/runtime-main.243a31e2.js",
-    "runtime-main.js.map": "/project-yule/static/js/runtime-main.243a31e2.js.map",
-    "static/js/2.6533a228.chunk.js": "/project-yule/static/js/2.6533a228.chunk.js",
-    "static/js/2.6533a228.chunk.js.map": "/project-yule/static/js/2.6533a228.chunk.js.map",
+    "main.css": "/project-yule/static/css/main.3d42cef9.chunk.css",
+    "main.js": "/project-yule/static/js/main.2d9c2af9.chunk.js",
+    "main.js.map": "/project-yule/static/js/main.2d9c2af9.chunk.js.map",
+    "runtime-main.js": "/project-yule/static/js/runtime-main.3bae13a4.js",
+    "runtime-main.js.map": "/project-yule/static/js/runtime-main.3bae13a4.js.map",
+    "static/js/2.bae84e60.chunk.js": "/project-yule/static/js/2.bae84e60.chunk.js",
+    "static/js/2.bae84e60.chunk.js.map": "/project-yule/static/js/2.bae84e60.chunk.js.map",
     "index.html": "/project-yule/index.html",
-    "precache-manifest.abe8904c69fef8053abd572c4bfe43f6.js": "/project-yule/precache-manifest.abe8904c69fef8053abd572c4bfe43f6.js",
+    "precache-manifest.97b8328968d6b83dd7cc6abc4a05cf24.js": "/project-yule/precache-manifest.97b8328968d6b83dd7cc6abc4a05cf24.js",
     "service-worker.js": "/project-yule/service-worker.js",
-    "static/css/main.47a44623.chunk.css.map": "/project-yule/static/css/main.47a44623.chunk.css.map",
-    "static/js/2.6533a228.chunk.js.LICENSE": "/project-yule/static/js/2.6533a228.chunk.js.LICENSE",
-    "static/media/App.css": "/project-yule/static/media/DOMISC__.0003423b.TTF"
+    "static/css/main.3d42cef9.chunk.css.map": "/project-yule/static/css/main.3d42cef9.chunk.css.map",
+    "static/js/2.bae84e60.chunk.js.LICENSE.txt": "/project-yule/static/js/2.bae84e60.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/project-yule/static/media/Raleway-Regular.75b4247f.ttf",
+    "static/media/agricolaheader.png": "/project-yule/static/media/agricolaheader.a09a232b.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.243a31e2.js",
-    "static/js/2.6533a228.chunk.js",
-    "static/css/main.47a44623.chunk.css",
-    "static/js/main.7d531faf.chunk.js"
+    "static/js/runtime-main.3bae13a4.js",
+    "static/js/2.bae84e60.chunk.js",
+    "static/css/main.3d42cef9.chunk.css",
+    "static/js/main.2d9c2af9.chunk.js"
   ]
 }
