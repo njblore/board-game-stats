@@ -38,10 +38,10 @@ const PieChart = (props) => {
   const winPercentages = Object.entries(props.scores as SinglePlayerScore).map(
     ([player, winCount]) => {
       return player === "draw"
-        ? `${Math.floor(
+        ? `${Math.round(
             (winCount / totalGames) * 100
           )}% of games ended in a draw!`
-        : `${player} has won ${Math.floor(
+        : `${player} has won ${Math.round(
             (winCount / totalGames) * 100
           )}% of games`;
     }

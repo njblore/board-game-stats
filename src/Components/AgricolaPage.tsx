@@ -52,8 +52,6 @@ const AgricolaPage = () => {
           <div className="image-container">
             <img src={agricola}></img>
           </div>
-          {/* 
-          <img src={lover}></img> */}
         </div>
         <Stats
           totals={totals}

@@ -92,11 +92,6 @@ const ScatterRelationships = (props) => {
     ],
   };
 
-  console.log(
-    "datapointfortopic",
-    dataPointForTopic("family members", props.allGames)
-  );
-
   return (
     <div className="scatter-container container">
       <header className="header">Scattered Relationships</header>

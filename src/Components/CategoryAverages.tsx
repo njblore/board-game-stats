@@ -21,11 +21,14 @@ const CategoryAverage = (props) => {
 
   for (let player in categoryScores) {
     for (let category in categoryScores[player]) {
-      let total = categoryScores[player][category].reduce(
-        (acc, score) => (acc += score)
-      );
-      let avg = total / categoryScores[player][category].length;
-      averages[player][category] = avg.toFixed(2);
+      if (categoryScores[player][category].length > 0) {
+        let total = categoryScores[player][category].reduce(
+          (acc, score) => (acc += score)
+        );
+
+        let avg = total / categoryScores[player][category].length;
+        averages[player][category] = avg.toFixed(2);
+      }
     }
   }
 

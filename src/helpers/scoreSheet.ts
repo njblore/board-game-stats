@@ -14,6 +14,7 @@ export interface ScoreSheet {
   "points for cards": number[];
   "bonus points": number[];
   total: number[];
+  horses?: number[];
 }
 
 export interface PlayerCategoryScores {
@@ -37,6 +38,7 @@ export const blankScoreSheet = (players: string[]): PlayerCategoryScores => {
       "family members": [],
       "points for cards": [],
       "bonus points": [],
+      horses: [],
     };
     return acc;
   }, {});
