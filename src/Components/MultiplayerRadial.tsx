@@ -4,7 +4,7 @@ import {
   scoresForEachPlayer,
   averageScoresFromObject,
 } from "../helpers/scoreCalculations";
-import { colours } from "../models/colourScheme";
+import { colours, namedColours } from "../models/colourScheme";
 import { SinglePlayerScore } from "../models/playerScore";
 
 const MultiplayerRadial = (props) => {
@@ -17,7 +17,9 @@ const MultiplayerRadial = (props) => {
     datasets: [
       {
         data: Object.values(playerAverages),
-        backgroundColor: Object.values(colours),
+        backgroundColor: Object.keys(playerAverages).map(
+          (player) => namedColours[player]
+        ),
         label: "",
         borderColor: "black",
         borderWidth: 1,

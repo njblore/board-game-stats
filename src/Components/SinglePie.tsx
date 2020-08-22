@@ -1,5 +1,6 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
+import { namedColours } from "../models/colourScheme";
 import { SinglePlayerScore } from "../models/playerScore";
 
 const PieChart = (props) => {
@@ -7,14 +8,16 @@ const PieChart = (props) => {
     return player === "draw" ? "Draw" : `${player} Wins`;
   });
   const scoresData = Object.values(props.scores);
-
+  const colours = Object.keys(props.scores).map(
+    (player) => namedColours[player]
+  );
   const data = {
     labels,
     datasets: [
       {
         data: scoresData,
-        backgroundColor: props.backgroundColor,
-        hoverBackgroundColor: props.backgroundColor,
+        backgroundColor: colours,
+        hoverBackgroundColor: colours,
         borderColor: "black",
         borderWidth: 1,
       },

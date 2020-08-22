@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
 import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import { colours } from "../models/colourScheme";
 import { GameScore } from "../models/game";
-import { dateFromString, dateRegex } from "../helpers/date";
+import { dateFromString } from "../helpers/date";
 import { PlayerAllScores } from "../models/playerScore";
+import { namedColours } from "../models/colourScheme";
 
 const FinalScoresBar = (props) => {
   const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);
@@ -16,7 +16,7 @@ const FinalScoresBar = (props) => {
   const sets = players.map((player, i) => {
     return {
       label: player,
-      backgroundColor: Object.values(colours)[i],
+      backgroundColor: namedColours[player],
       borderColor: "black",
       borderWidth: 0.5,
       hoverBackgroundColor: "rgb(54, 174, 201)",
@@ -41,7 +41,7 @@ const FinalScoresBar = (props) => {
 
   return (
     <div className="bar-container container">
-      <header className="header">Final Scores</header>
+      <header className="header">Scores Over Time</header>
       <div className="button-container">
         <button
           className="agricola-button"
@@ -62,7 +62,7 @@ const FinalScoresBar = (props) => {
           All Games
         </button>
       </div>
-      <Bar data={data} />
+      <Bar data={data} options={{ maintainAspectRatio: false }} />
     </div>
   );
 };

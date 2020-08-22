@@ -84,7 +84,7 @@ const ScatterRelationships = (props) => {
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map((score) => score.y),
         fill: false,
-        backgroundColor: "#ca7eee",
+        backgroundColor: colours.turquoise,
         borderColor: "black",
         hoverBackgroundColor: "#71B37C",
         hoverBorderColor: "#71B37C",
