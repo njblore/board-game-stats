@@ -51,8 +51,10 @@ const PieChart = (props) => {
     <div className="pie-grid">
       <Doughnut data={data} legend={legendOpts}></Doughnut>
       <div>
-        {winPercentages.map((string) => (
-          <p className="win-stats">{string}</p>
+        {winPercentages.map((string, index) => (
+          <p className="win-stats" key={index}>
+            {string}
+          </p>
         ))}
       </div>
     </div>

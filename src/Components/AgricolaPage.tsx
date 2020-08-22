@@ -10,6 +10,11 @@ import axios from "axios";
 import { GameScore } from "../models/game";
 import { PlayerAllScores } from "../models/playerScore";
 import agricola from "../images/agricolaheader.png";
+import { dateRegex } from "../helpers/date";
+
+interface apiData {
+  agricolaGames: GameScore[];
+}
 
 const AgricolaPage = () => {
   const [allGames, setAllGames] = useState<GameScore[]>();
@@ -33,7 +38,7 @@ const AgricolaPage = () => {
       );
       return result.data;
     };
-    fetchData().then((data) => {
+    fetchData().then((data: apiData) => {
       setAllGames(data.agricolaGames);
       setTotals(scoresForEachPlayer(data.agricolaGames));
       setTashVsThom(
@@ -62,9 +67,9 @@ const AgricolaPage = () => {
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
         <FinalScoresBar
-          games={allGames}
-          twoPlayer={tashVsThom}
-          multiplayer={multiplayer}
+          games={allGames.filter((game) => game.date.match(dateRegex))}
+          twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
+          multiplayer={multiplayer.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
         <CategoryAverage
           games={allGames}

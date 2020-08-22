@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { dateFromString, dateRegex } from "../helpers/date";
 import { blankPlayerScoreSheet, PlayerScore } from "../models/playerScore";
 import AgricolaScoreSheet from "./AgricolaScoreSheet";
 
@@ -25,6 +26,7 @@ const AgricolaScoreModal = (props) => {
     player1Form,
     player2Form,
   ]);
+
   const allPlayerForms = [
     player1Form,
     player2Form,
@@ -34,14 +36,10 @@ const AgricolaScoreModal = (props) => {
   ];
 
   const validateDate = (dateString: string) => {
-    const dateRegex = /[0-3]\d[\/|\-][0-1]\d[\/|\-][1-2]\d\d\d/;
-
     if (!dateString.match(dateRegex)) {
       setErrors({ date: true });
     } else {
-      const [day, month, year] = dateString.split(new RegExp("/|-"));
-      const date = new Date(Number(year), Number(month) - 1, Number(day));
-
+      const date = dateFromString(dateString);
       if (!date.getDate()) {
         setErrors({ date: true });
       } else {

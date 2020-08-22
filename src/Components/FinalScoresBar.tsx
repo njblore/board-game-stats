@@ -2,36 +2,41 @@ import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
 import { scoresForEachPlayer } from "../helpers/scoreCalculations";
+import { colours } from "../models/colourScheme";
+import { GameScore } from "../models/game";
+import { dateFromString, dateRegex } from "../helpers/date";
+import { PlayerAllScores } from "../models/playerScore";
 
 const FinalScoresBar = (props) => {
-  const [pool, setPool] = useState(props.twoPlayer);
-  const players = getPlayers(pool);
-  const scores = scoresForEachPlayer(pool);
+  const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);
 
-  const colours = [
-    "#8d6fef",
-    "#ff57bd",
-    "#19da1c",
-    "#2b74fe",
-    "orange",
-    "#9814c0",
-    "white",
-    "red",
-  ];
+  const players = getPlayers(pool);
+  const scores: PlayerAllScores = scoresForEachPlayer(pool);
+
   const sets = players.map((player, i) => {
     return {
       label: player,
-      backgroundColor: colours[i],
+      backgroundColor: Object.values(colours)[i],
       borderColor: "black",
       borderWidth: 0.5,
-      hoverBackgroundColor: "#8d6fef",
+      hoverBackgroundColor: "rgb(54, 174, 201)",
       hoverBorderColor: "black",
       data: scores[player],
     };
   });
+
   const data = {
-    labels: pool.map((game) => game.date.split("/")),
+    labels: pool.map((game) => dateFromString(game.date).toDateString()),
     datasets: sets,
+    options: {
+      scales: {
+        xAxes: [
+          {
+            type: "time",
+          },
+        ],
+      },
+    },
   };
 
   return (

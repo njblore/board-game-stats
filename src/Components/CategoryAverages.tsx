@@ -3,10 +3,11 @@ import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
 import { blankScoreSheet, PlayerCategoryScores } from "../helpers/scoreSheet";
 import { categoryScoresForEachPlayer } from "../helpers/scoreCalculations";
+import { colours } from "../models/colourScheme";
 
 const CategoryAverage = (props) => {
   const [pool, setPool] = useState(props.games);
-  const players = getPlayers(pool);
+  const players = getPlayers(pool).sort();
 
   const blankScores: PlayerCategoryScores = blankScoreSheet(players);
   const categoryScores: PlayerCategoryScores = categoryScoresForEachPlayer(
@@ -38,23 +39,14 @@ const CategoryAverage = (props) => {
       .filter(([category, _]) => category !== "total")
       .map(([_, value]) => value);
   };
-  const colours = [
-    "#ff57bd",
-    "yellow",
-    "#14c017",
-    "#2b74fe",
-    "orange",
-    "#9814c0",
-    "white",
-    "red",
-  ];
+
   const sets = players.map((player, i) => {
     return {
       label: player,
-      backgroundColor: colours[i],
+      backgroundColor: Object.values(colours)[i],
       borderColor: "black",
       borderWidth: 0.5,
-      hoverBackgroundColor: colours[i],
+      hoverBackgroundColor: Object.values(colours)[i],
       hoverBorderColor: "black",
       data: getAverages(player),
     };

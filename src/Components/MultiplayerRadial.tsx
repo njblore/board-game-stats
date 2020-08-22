@@ -4,28 +4,23 @@ import {
   scoresForEachPlayer,
   averageScoresFromObject,
 } from "../helpers/scoreCalculations";
+import { colours } from "../models/colourScheme";
+import { SinglePlayerScore } from "../models/playerScore";
 
 const MultiplayerRadial = (props) => {
   const [set, setSet] = useState(props.multiplayer);
   let allScores = scoresForEachPlayer(set);
 
-  let playerAverages = averageScoresFromObject(allScores);
+  let playerAverages: SinglePlayerScore = averageScoresFromObject(allScores);
 
   const data = {
     datasets: [
       {
         data: Object.values(playerAverages),
-        backgroundColor: [
-          "#ff57bd",
-          "yellow",
-          "#14c017",
-          "#2b74fe",
-          "orange",
-          "#9814c0",
-          "white",
-          "red",
-        ],
+        backgroundColor: Object.values(colours),
         label: "",
+        borderColor: "black",
+        borderWidth: 1,
       },
     ],
     labels: Object.keys(playerAverages),

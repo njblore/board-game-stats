@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { dataPointForTopic } from "../helpers/chartDataManipulation";
+import { colours } from "../models/colourScheme";
 
 const ScatterRelationships = (props) => {
   const [topic, setTopic] = useState("family members");
@@ -68,12 +69,12 @@ const ScatterRelationships = (props) => {
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map((score) => score.x),
         fill: false,
-        borderColor: "orange",
-        backgroundColor: "yellow",
-        pointBorderColor: "orange",
-        pointBackgroundColor: "yellow",
-        pointHoverBackgroundColor: "limegreen",
-        pointHoverBorderColor: "green",
+        borderColor: colours.salmon,
+        backgroundColor: colours.yellow,
+        pointBorderColor: colours.salmon,
+        pointBackgroundColor: colours.yellow,
+        pointHoverBackgroundColor: colours.green,
+        pointHoverBorderColor: colours.green,
         yAxisID: "y-axis-2",
       },
       {

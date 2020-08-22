@@ -1,6 +1,7 @@
 import PieChart from "./SinglePie";
 import React from "react";
 import { winCounts } from "../helpers/scoreCalculations";
+import { colours } from "../models/colourScheme";
 
 const PieCharts = (props) => {
   return (
@@ -8,12 +9,8 @@ const PieCharts = (props) => {
       <header className="header">Win Lose Draw!</header>
       <PieChart
         scores={winCounts(props.tashVsThom)}
-        backgroundColor={["#36A2EB", "#FF6384", "#FFCE56"]}
+        backgroundColor={Object.values(colours)}
       ></PieChart>
-      {/* <div className="button-container">
-        <button className="agricola-button" onClick={() => setPool(props.twoPlayer)}>Two Player</button>
-        <button className="agricola-button" onClick={() => setPool(props.multiplayer)}>Multiplayer</button>
-      </div> */}
     </div>
   );
 };
