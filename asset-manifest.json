@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/project-yule/static/css/main.3d42cef9.chunk.css",
-    "main.js": "/project-yule/static/js/main.2d9c2af9.chunk.js",
-    "main.js.map": "/project-yule/static/js/main.2d9c2af9.chunk.js.map",
+    "main.css": "/project-yule/static/css/main.4bf62951.chunk.css",
+    "main.js": "/project-yule/static/js/main.89f95d9c.chunk.js",
+    "main.js.map": "/project-yule/static/js/main.89f95d9c.chunk.js.map",
     "runtime-main.js": "/project-yule/static/js/runtime-main.3bae13a4.js",
     "runtime-main.js.map": "/project-yule/static/js/runtime-main.3bae13a4.js.map",
-    "static/js/2.bae84e60.chunk.js": "/project-yule/static/js/2.bae84e60.chunk.js",
-    "static/js/2.bae84e60.chunk.js.map": "/project-yule/static/js/2.bae84e60.chunk.js.map",
+    "static/js/2.96f26e7d.chunk.js": "/project-yule/static/js/2.96f26e7d.chunk.js",
+    "static/js/2.96f26e7d.chunk.js.map": "/project-yule/static/js/2.96f26e7d.chunk.js.map",
     "index.html": "/project-yule/index.html",
-    "precache-manifest.97b8328968d6b83dd7cc6abc4a05cf24.js": "/project-yule/precache-manifest.97b8328968d6b83dd7cc6abc4a05cf24.js",
+    "precache-manifest.53645e656b1f4582c4ec0766802a2acd.js": "/project-yule/precache-manifest.53645e656b1f4582c4ec0766802a2acd.js",
     "service-worker.js": "/project-yule/service-worker.js",
-    "static/css/main.3d42cef9.chunk.css.map": "/project-yule/static/css/main.3d42cef9.chunk.css.map",
-    "static/js/2.bae84e60.chunk.js.LICENSE.txt": "/project-yule/static/js/2.bae84e60.chunk.js.LICENSE.txt",
+    "static/css/main.4bf62951.chunk.css.map": "/project-yule/static/css/main.4bf62951.chunk.css.map",
+    "static/js/2.96f26e7d.chunk.js.LICENSE.txt": "/project-yule/static/js/2.96f26e7d.chunk.js.LICENSE.txt",
     "static/media/App.css": "/project-yule/static/media/Raleway-Regular.75b4247f.ttf",
-    "static/media/agricolaheader.png": "/project-yule/static/media/agricolaheader.a09a232b.png"
+    "static/media/agricolaheader.png": "/project-yule/static/media/agricolaheader.a09a232b.png",
+    "static/media/tmboxheader.png": "/project-yule/static/media/tmboxheader.7c6f7153.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3bae13a4.js",
-    "static/js/2.bae84e60.chunk.js",
-    "static/css/main.3d42cef9.chunk.css",
-    "static/js/main.2d9c2af9.chunk.js"
+    "static/js/2.96f26e7d.chunk.js",
+    "static/css/main.4bf62951.chunk.css",
+    "static/js/main.89f95d9c.chunk.js"
   ]
 }

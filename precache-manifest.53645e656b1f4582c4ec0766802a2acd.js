@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "168e4614ff8475da304929e72b91f4e7",
+    "revision": "0dac729387dd1635a5a45719e64b7128",
     "url": "/project-yule/index.html"
   },
   {
-    "revision": "462910dd85e61a334117",
-    "url": "/project-yule/static/css/main.3d42cef9.chunk.css"
+    "revision": "1285c91d7f5015ffaf32",
+    "url": "/project-yule/static/css/main.4bf62951.chunk.css"
   },
   {
-    "revision": "c5c32bc3b83dba5c7acb",
-    "url": "/project-yule/static/js/2.bae84e60.chunk.js"
+    "revision": "32ca9214592664c9beaf",
+    "url": "/project-yule/static/js/2.96f26e7d.chunk.js"
   },
   {
     "revision": "4db0b4b7fd2c7a0aaf4845dcd6ed7f11",
-    "url": "/project-yule/static/js/2.bae84e60.chunk.js.LICENSE.txt"
+    "url": "/project-yule/static/js/2.96f26e7d.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "462910dd85e61a334117",
-    "url": "/project-yule/static/js/main.2d9c2af9.chunk.js"
+    "revision": "1285c91d7f5015ffaf32",
+    "url": "/project-yule/static/js/main.89f95d9c.chunk.js"
   },
   {
     "revision": "1dd227568f0cdd1346da",
@@ -42,5 +42,9 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "a09a232bcdc538559b2b24eff7ac98ec",
     "url": "/project-yule/static/media/agricolaheader.a09a232b.png"
+  },
+  {
+    "revision": "7c6f7153487a51930a1c132681a19742",
+    "url": "/project-yule/static/media/tmboxheader.7c6f7153.png"
   }
 ]);
