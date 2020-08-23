@@ -1,7 +1,7 @@
 import PieChart from "./SinglePie";
 import React from "react";
 import { winCounts } from "../helpers/scoreCalculations";
-import { colours } from "../models/colourScheme";
+import { colours } from "../models/agricola/colourScheme";
 
 const PieCharts = (props) => {
   return (

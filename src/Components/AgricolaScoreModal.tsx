@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { dateFromString, dateRegex } from "../helpers/date";
-import { GameScore } from "../models/game";
+import { GameScore } from "../models/agricola/game";
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
   PlayerScore,
   SinglePlayerScore,
-} from "../models/playerScore";
+} from "../models/agricola/playerScore";
 import AgricolaScoreSheet from "./AgricolaScoreSheet";
 import ConfirmScoresModal from "./ConfirmModal";
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { dataPointForTopic } from "../helpers/chartDataManipulation";
-import { colours } from "../models/colourScheme";
+import { colours } from "../models/agricola/colourScheme";
 
 const ScatterRelationships = (props) => {
   const [topic, setTopic] = useState("family members");

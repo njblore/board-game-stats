@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
 import { blankScoreSheet, PlayerCategoryScores } from "../helpers/scoreSheet";
 import { categoryScoresForEachPlayer } from "../helpers/scoreCalculations";
-import { colours, namedColours } from "../models/colourScheme";
+import { namedColours } from "../models/agricola/colourScheme";
 
 const CategoryAverage = (props) => {
   const [pool, setPool] = useState(props.games);

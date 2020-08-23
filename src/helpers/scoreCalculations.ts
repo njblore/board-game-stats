@@ -1,9 +1,9 @@
-import { GameScore } from "../models/game";
+import { GameScore } from "../models/agricola/game";
 import {
   PlayerAllScores,
   PlayerScore,
   SinglePlayerScore,
-} from "../models/playerScore";
+} from "../models/agricola/playerScore";
 import { PlayerCategoryScores, ScoreSheet } from "./scoreSheet";
 
 export const totalScoresForGame = (playersArray: PlayerScore[]) => {

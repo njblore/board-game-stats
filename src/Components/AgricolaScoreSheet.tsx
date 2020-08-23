@@ -3,7 +3,7 @@ import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
   PlayerScore,
-} from "../models/playerScore";
+} from "../models/agricola/playerScore";
 
 interface Props {
   playerScores: PlayerScore;

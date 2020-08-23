@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Bar } from "react-chartjs-2";
 import { getPlayers } from "../helpers/getPlayers";
 import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import { GameScore } from "../models/game";
+import { GameScore } from "../models/agricola/game";
 import { dateFromString } from "../helpers/date";
-import { PlayerAllScores } from "../models/playerScore";
-import { namedColours } from "../models/colourScheme";
+import { PlayerAllScores } from "../models/agricola/playerScore";
+import { namedColours } from "../models/agricola/colourScheme";
 
 const FinalScoresBar = (props) => {
   const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);

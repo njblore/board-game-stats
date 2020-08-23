@@ -1,4 +1,4 @@
-import { GameScore } from "../models/game";
+import { GameScore } from "../models/agricola/game";
 import { totalScore } from "./scoreCalculations";
 
 export const dataPointForTopic = (topic: string, games: GameScore[]) => {

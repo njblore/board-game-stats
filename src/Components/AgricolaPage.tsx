@@ -7,8 +7,8 @@ import MultiplayerRadial from "./MultiplayerRadial";
 import ScatterRelationships from "./ScatterRelationships";
 import { scoresForEachPlayer } from "../helpers/scoreCalculations";
 import axios from "axios";
-import { GameScore } from "../models/game";
-import { PlayerAllScores } from "../models/playerScore";
+import { GameScore } from "../models/agricola/game";
+import { PlayerAllScores } from "../models/agricola/playerScore";
 import agricola from "../images/agricolaheader.png";
 import { dateRegex } from "../helpers/date";
 
@@ -53,7 +53,7 @@ const AgricolaPage = () => {
 
   if (!isLoading) {
     return (
-      <div className="agricola-page-container">
+      <div className="page-container">
         <div className="page-header header">
           <div className="image-container">
             <img src={agricola}></img>

@@ -1,4 +1,4 @@
-import { GameScore } from "../models/game";
+import { GameScore } from "../models/agricola/game";
 
 export const getPlayers = (games: GameScore[]): string[] => {
   return games.reduce((acc, game) => {
