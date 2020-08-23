@@ -1,39 +1,36 @@
+import { setServers } from "dns";
 import React, { useState } from "react";
 import { dateFromString, dateRegex } from "../helpers/date";
-import { blankPlayerScoreSheet, PlayerScore } from "../models/playerScore";
+import { GameScore } from "../models/game";
+import {
+  blankPlayerScoreSheet,
+  PlayerScore,
+  SinglePlayerScore,
+} from "../models/playerScore";
 import AgricolaScoreSheet from "./AgricolaScoreSheet";
+import ConfirmScoresModal from "./ConfirmModal";
 
-const AgricolaScoreModal = (props) => {
+interface PropsInterface {
+  hideModal;
+}
+
+const AgricolaScoreModal = (props: PropsInterface) => {
   const [errors, setErrors] = useState({ date: false });
-
-  const [player1Form, setPlayer1Form] = useState<PlayerScore>(
-    blankPlayerScoreSheet
-  );
-  const [player2Form, setPlayer2Form] = useState<PlayerScore>(
-    blankPlayerScoreSheet
-  );
-  const [player3Form, setPlayer3Form] = useState<PlayerScore>(
-    blankPlayerScoreSheet
-  );
-  const [player4Form, setPlayer4Form] = useState<PlayerScore>(
-    blankPlayerScoreSheet
-  );
-  const [player5Form, setPlayer5Form] = useState<PlayerScore>(
-    blankPlayerScoreSheet
+  const [playerScores, setPlayerScores] = useState<Record<number, PlayerScore>>(
+    {
+      0: blankPlayerScoreSheet,
+      1: blankPlayerScoreSheet,
+      2: blankPlayerScoreSheet,
+      3: blankPlayerScoreSheet,
+      4: blankPlayerScoreSheet,
+    }
   );
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
-  const [activePlayerForms, setActivePlayerForms] = useState<PlayerScore[]>([
-    player1Form,
-    player2Form,
-  ]);
-
-  const allPlayerForms = [
-    player1Form,
-    player2Form,
-    player3Form,
-    player4Form,
-    player5Form,
-  ];
+  const [date, setDate] = useState<string>();
+  const [location, setLocation] = useState<string>();
+  const [gameData, setGameData] = useState<GameScore>();
+  const [confirmPopup, setConfirmPopup] = useState<boolean>(false);
+  const [totals, setTotals] = useState<SinglePlayerScore>();
 
   const validateDate = (dateString: string) => {
     if (!dateString.match(dateRegex)) {
@@ -44,45 +41,60 @@ const AgricolaScoreModal = (props) => {
         setErrors({ date: true });
       } else {
         setErrors({ date: false });
+        setDate(dateString);
       }
     }
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    if (date === undefined) {
+      setErrors({ date: true });
+    } else if (!errors.date) {
+      const formsWithTotals = Object.values(playerScores).map((player) => {
+        const playerTotal = player.scores.reduce((total, categoryScore) => {
+          return (total += categoryScore.value);
+        }, 0);
+        setTotals({ [player.name]: playerTotal });
+        player.scores.push({ category: "total", value: playerTotal });
+        return player;
+      });
 
-  const handlePlayerScores = (scores: PlayerScore, index: number) => {
-    switch (index) {
-      case 1:
-        setPlayer1Form(scores);
-        break;
-      case 2:
-        setPlayer2Form(scores);
-        break;
-      case 3:
-        setPlayer3Form(scores);
-        break;
-      case 4:
-        setPlayer4Form(scores);
-        break;
-      case 5:
-        setPlayer5Form(scores);
-        break;
+      const gameData: GameScore = {
+        players: formsWithTotals,
+        location,
+        date,
+      };
+
+      setGameData(gameData);
+      setConfirmPopup(true);
     }
   };
 
+  const handlePlayerScores = (scores: PlayerScore, index: number) => {
+    setPlayerScores({ ...playerScores, [index]: scores });
+  };
+
+  const submitScores = () => {};
+
   const handleNumberOfPlayers = (numOfPlayers: number) => {
     setNumberOfPlayers(numOfPlayers);
-    setActivePlayerForms(allPlayerForms.slice(0, numOfPlayers));
   };
 
   return (
     <div className="agricola-modal modal">
       <button onClick={props.hideModal}>CLOSE X</button>
+      {confirmPopup && (
+        <ConfirmScoresModal
+          cancel={() => setConfirmPopup(false)}
+          submit={() => submitScores()}
+          totals={totals}
+        ></ConfirmScoresModal>
+      )}
       <div className="form-container">
         <div className="form-metadata-container">
           <div className="game-info-container">
             <label>
-              Date:{" "}
+              Date:
               <input
                 type="text"
                 onChange={(e) => validateDate(e.target.value)}
@@ -146,15 +158,20 @@ const AgricolaScoreModal = (props) => {
           </div>
         </div>
         <div className="score-input-container">
-          {activePlayerForms.map((playerForm, index) => (
-            <AgricolaScoreSheet
-              playerScores={playerForm}
-              updateForm={(value) => handlePlayerScores(value, index + 1)}
-            ></AgricolaScoreSheet>
-          ))}
+          {Object.entries(playerScores).map(
+            ([index, playerForm]) =>
+              Number(index) < numberOfPlayers && (
+                <AgricolaScoreSheet
+                  playerScores={playerForm}
+                  updateForm={(value) =>
+                    handlePlayerScores(value, Number(index))
+                  }
+                ></AgricolaScoreSheet>
+              )
+          )}
         </div>
       </div>
-      <button>Submit</button>
+      <button onClick={() => handleSubmit()}>Submit</button>
     </div>
   );
 };
