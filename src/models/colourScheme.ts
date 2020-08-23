@@ -10,12 +10,12 @@ export const colours = {
 };
 
 export const namedColours = {
-  Thom: "rgb(255, 132, 105)",
-  "CJ & Jeff": "rgb(30, 187, 108)",
+  "CJ & Jeff": "rgb(255, 132, 105)",
+  Thom: "rgb(30, 187, 108)",
   Jonny: "rgb(255,205,18)",
-  Tash: "rgb(54, 174, 201)",
-  Tom: "rgb(255, 99, 216)",
-  Jeff: "rgb(160, 58, 211)",
+  Jeff: "rgb(54, 174, 201)",
+  Tash: "rgb(255, 99, 216)",
+  Tom: "rgb(160, 58, 211)",
   Rob: "rgb(30, 119, 239)",
   James: "rgb(252, 130, 15)",
   draw: "rgb(255,205,18)",
