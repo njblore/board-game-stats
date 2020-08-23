@@ -28,15 +28,21 @@ const AgricolaScoreSheet = (props: Props) => {
             {cat.category[0].toUpperCase().concat(cat.category.slice(1))}
             <input
               type="number"
-              value={props.playerScores[cat.category]}
+              value={
+                props.playerScores.scores.find(
+                  (sc) => sc.category === cat.category
+                ).value
+              }
               className="category-input"
               onChange={(e) =>
                 props.updateForm({
                   name: props.playerScores.name,
-                  scores: {
-                    [cat.category]: e.target.value,
-                    ...props.playerScores.scores,
-                  },
+                  scores: [
+                    { category: cat.category, value: e.target.value },
+                    ...props.playerScores.scores.filter(
+                      (sc) => sc.category !== cat.category
+                    ),
+                  ],
                 })
               }
             />
