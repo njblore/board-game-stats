@@ -9,12 +9,13 @@ interface PropsInterface {
 }
 
 const ConfirmScoresModal = (props: PropsInterface) => {
+  console.log(props.totals);
   return (
     <div className="confirm-modal modal">
       <div>
-        {Object.values(props.totals).map((total) => (
-          <p>
-            {total[0]} scored {total[1]}
+        {Object.entries(props.totals).map(([name, total]) => (
+          <p key={name}>
+            {name} scored {total}
           </p>
         ))}
       </div>

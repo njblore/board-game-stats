@@ -1,9 +1,9 @@
-import { setServers } from "dns";
 import React, { useState } from "react";
 import { dateFromString, dateRegex } from "../helpers/date";
 import { GameScore } from "../models/game";
 import {
-  blankPlayerScoreSheet,
+  blankBaseGameScoreSheet,
+  blankFarmersOfTheMoorScoreSheet,
   PlayerScore,
   SinglePlayerScore,
 } from "../models/playerScore";
@@ -15,17 +15,22 @@ interface PropsInterface {
 }
 
 const AgricolaScoreModal = (props: PropsInterface) => {
+  const [gameType, updateGameType] = useState(false);
+  const scoreSheet = gameType
+    ? blankBaseGameScoreSheet
+    : blankFarmersOfTheMoorScoreSheet;
   const [errors, setErrors] = useState({ date: false });
   const [playerScores, setPlayerScores] = useState<Record<number, PlayerScore>>(
     {
-      0: blankPlayerScoreSheet,
-      1: blankPlayerScoreSheet,
-      2: blankPlayerScoreSheet,
-      3: blankPlayerScoreSheet,
-      4: blankPlayerScoreSheet,
+      0: scoreSheet,
+      1: scoreSheet,
+      2: scoreSheet,
+      3: scoreSheet,
+      4: scoreSheet,
     }
   );
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
+
   const [date, setDate] = useState<string>();
   const [location, setLocation] = useState<string>();
   const [gameData, setGameData] = useState<GameScore>();
@@ -50,17 +55,18 @@ const AgricolaScoreModal = (props: PropsInterface) => {
     if (date === undefined) {
       setErrors({ date: true });
     } else if (!errors.date) {
-      const formsWithTotals = Object.values(playerScores).map((player) => {
-        const playerTotal = player.scores.reduce((total, categoryScore) => {
-          return (total += categoryScore.value);
-        }, 0);
-        setTotals({ [player.name]: playerTotal });
-        player.scores.push({ category: "total", value: playerTotal });
-        return player;
+      Object.entries(playerScores).forEach(([index, player]) => {
+        if (Number(index) < numberOfPlayers) {
+          const playerTotal = player.scores.reduce((total, categoryScore) => {
+            return (total += Number(categoryScore.value));
+          }, 0);
+          console.log(player.name);
+          setTotals({ [player.name]: playerTotal, ...totals });
+        }
       });
 
       const gameData: GameScore = {
-        players: formsWithTotals,
+        players: Object.values(playerScores),
         location,
         date,
       };
@@ -71,10 +77,14 @@ const AgricolaScoreModal = (props: PropsInterface) => {
   };
 
   const handlePlayerScores = (scores: PlayerScore, index: number) => {
+    console.log("scores", scores);
     setPlayerScores({ ...playerScores, [index]: scores });
   };
 
-  const submitScores = () => {};
+  const submitScores = () => {
+    setConfirmPopup(false);
+    props.hideModal();
+  };
 
   const handleNumberOfPlayers = (numOfPlayers: number) => {
     setNumberOfPlayers(numOfPlayers);
@@ -157,15 +167,37 @@ const AgricolaScoreModal = (props: PropsInterface) => {
             </label>
           </div>
         </div>
+        <div className="player-radio-container">
+          <label>
+            <input
+              type="radio"
+              value="basegame"
+              checked={gameType === true}
+              onChange={() => updateGameType(true)}
+            />
+            Base Game
+          </label>
+          <label>
+            <input
+              type="radio"
+              value="moors"
+              checked={gameType === false}
+              onChange={() => updateGameType(false)}
+            />
+            Farmers Of The Moor
+          </label>
+        </div>
         <div className="score-input-container">
           {Object.entries(playerScores).map(
             ([index, playerForm]) =>
               Number(index) < numberOfPlayers && (
                 <AgricolaScoreSheet
+                  key={index}
                   playerScores={playerForm}
                   updateForm={(value) =>
                     handlePlayerScores(value, Number(index))
                   }
+                  baseGame={gameType}
                 ></AgricolaScoreSheet>
               )
           )}

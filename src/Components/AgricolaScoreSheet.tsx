@@ -1,12 +1,20 @@
 import React, { useState } from "react";
-import { blankPlayerScoreSheet, PlayerScore } from "../models/playerScore";
+import {
+  blankBaseGameScoreSheet,
+  blankFarmersOfTheMoorScoreSheet,
+  PlayerScore,
+} from "../models/playerScore";
 
 interface Props {
   playerScores: PlayerScore;
   updateForm;
+  baseGame: boolean;
 }
 
 const AgricolaScoreSheet = (props: Props) => {
+  const scoreSheet = props.baseGame
+    ? blankBaseGameScoreSheet
+    : blankFarmersOfTheMoorScoreSheet;
   return (
     <div className="form-player">
       <label className="category-label">
@@ -23,8 +31,8 @@ const AgricolaScoreSheet = (props: Props) => {
         />
       </label>
       <div className="category-scores-grid">
-        {blankPlayerScoreSheet.scores.map((cat) => (
-          <label className="category-label">
+        {scoreSheet.scores.map((cat, i) => (
+          <label className="category-label" key={i}>
             {cat.category[0].toUpperCase().concat(cat.category.slice(1))}
             <input
               type="number"
