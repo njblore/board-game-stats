@@ -24,7 +24,7 @@ const AgricolaPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = process.env.REACT_APP_API_KEY;
+    const pword = process.env.REACT_APP_AGRICOLA_API_KEY;
 
     const fetchData = async () => {
       setIsLoading(true);
@@ -35,7 +35,7 @@ const AgricolaPage = () => {
             "secret-key": `$2b$10$tVk${pword}`,
           },
         }
-      );
+      )
       return result.data;
     };
     fetchData().then((data: apiData) => {
