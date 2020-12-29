@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { dateFromString, dateRegex } from "../helpers/date";
-import { GameScore } from "../models/agricola/game";
+import { AgricolaGameScore, PlayerScore , SinglePlayerScore} from "../models/game";
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-  PlayerScore,
-  SinglePlayerScore,
 } from "../models/agricola/playerScore";
 import AgricolaScoreSheet from "./AgricolaScoreSheet";
 import ConfirmScoresModal from "./ConfirmModal";
@@ -33,7 +31,7 @@ const AgricolaScoreModal = (props: PropsInterface) => {
 
   const [date, setDate] = useState<string>();
   const [location, setLocation] = useState<string>();
-  const [gameData, setGameData] = useState<GameScore>();
+  const [gameData, setGameData] = useState<AgricolaGameScore>();
   const [confirmPopup, setConfirmPopup] = useState<boolean>(false);
   const [totals, setTotals] = useState<SinglePlayerScore>();
 
@@ -65,7 +63,7 @@ const AgricolaScoreModal = (props: PropsInterface) => {
         }
       });
 
-      const gameData: GameScore = {
+      const gameData: AgricolaGameScore = {
         players: Object.values(playerScores),
         location,
         date,

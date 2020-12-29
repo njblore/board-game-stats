@@ -1,7 +1,8 @@
 import React from "react";
 import { Doughnut } from "react-chartjs-2";
 import { namedColours } from "../models/agricola/colourScheme";
-import { SinglePlayerScore } from "../models/agricola/playerScore";
+import { SinglePlayerScore } from "../models/game";
+
 
 const PieChart = (props) => {
   const labels = Object.keys(props.scores).map((player) => {

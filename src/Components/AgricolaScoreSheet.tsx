@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-  PlayerScore,
 } from "../models/agricola/playerScore";
+import { PlayerScore } from "../models/game";
 
 interface Props {
   playerScores: PlayerScore;
@@ -33,7 +33,7 @@ const AgricolaScoreSheet = (props: Props) => {
       <div className="category-scores-grid">
         {scoreSheet.scores.map((cat, i) => (
           <label className="category-label" key={i}>
-            {cat.category[0].toUpperCase().concat(cat.category.slice(1))}
+            {cat.category[0].toUpperCase().concat(cat.category.toString().slice(1))}
             <input
               type="number"
               value={

@@ -5,7 +5,8 @@ import {
   averageScoresFromObject,
 } from "../helpers/scoreCalculations";
 import { colours, namedColours } from "../models/agricola/colourScheme";
-import { SinglePlayerScore } from "../models/agricola/playerScore";
+import { SinglePlayerScore } from "../models/game";
+
 
 const MultiplayerRadial = (props) => {
   const [set, setSet] = useState(props.multiplayer);

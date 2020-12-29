@@ -6,39 +6,27 @@ import Stats from "./Stats";
 import MultiplayerRadial from "./MultiplayerRadial";
 import ScatterRelationships from "./ScatterRelationships";
 import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import axios from "axios";
-import { GameScore } from "../models/agricola/game";
-import { PlayerAllScores } from "../models/agricola/playerScore";
+import { AgricolaGameScore, PlayerAllScores } from "../models/game";
 import agricola from "../images/agricolaheader.png";
 import { dateRegex } from "../helpers/date";
+import { fetchData } from "../helpers/fetchData";
 
 interface apiData {
-  agricolaGames: GameScore[];
+  agricolaGames: AgricolaGameScore[];
 }
 
 const AgricolaPage = () => {
-  const [allGames, setAllGames] = useState<GameScore[]>();
+  const [allGames, setAllGames] = useState<AgricolaGameScore[]>();
   const [totals, setTotals] = useState<PlayerAllScores>();
-  const [tashVsThom, setTashVsThom] = useState<GameScore[]>();
-  const [multiplayer, setMultiplayer] = useState<GameScore[]>();
+  const [tashVsThom, setTashVsThom] = useState<AgricolaGameScore[]>();
+  const [multiplayer, setMultiplayer] = useState<AgricolaGameScore[]>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = process.env.REACT_APP_AGRICOLA_API_KEY;
-
-    const fetchData = async () => {
-      setIsLoading(true);
-      const result = await axios(
-        "https://api.jsonbin.io/b/5ea01b9b2940c704e1dc9684/latest",
-        {
-          headers: {
-            "secret-key": `$2b$10$tVk${pword}`,
-          },
-        }
-      )
-      return result.data;
-    };
-    fetchData().then((data: apiData) => {
+    const pword = `$2b$10$tVk${process.env.REACT_APP_AGRICOLA_API_KEY}`;
+    const location = process.env.REACT_APP_AGRICOLA_LOCATION;
+    setIsLoading(true);
+    fetchData(pword, location).then((data: apiData) => {
       setAllGames(data.agricolaGames);
       setTotals(scoresForEachPlayer(data.agricolaGames));
       setTashVsThom(
@@ -56,7 +44,7 @@ const AgricolaPage = () => {
       <div className="page-container">
         <div className="page-header header">
           <div className="image-container">
-            <img src={agricola}></img>
+            <img src={agricola} alt="agricola-header"></img>
           </div>
         </div>
         <Stats

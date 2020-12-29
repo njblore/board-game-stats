@@ -1,6 +1,6 @@
-import { GameScore } from "../models/agricola/game";
+import { AgricolaGameScore } from '../models/game';
 
-export const getPlayers = (games: GameScore[]): string[] => {
+export const getPlayers = (games: AgricolaGameScore[]): string[] => {
   return games.reduce((acc, game) => {
     game.players.forEach((player) => {
       !acc.includes(player.name) && acc.push(player.name);

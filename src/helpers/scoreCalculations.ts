@@ -1,24 +1,26 @@
-import { GameScore } from "../models/agricola/game";
 import {
+  AgricolaGameScore,
   PlayerAllScores,
   PlayerScore,
   SinglePlayerScore,
-} from "../models/agricola/playerScore";
-import { PlayerCategoryScores, ScoreSheet } from "./scoreSheet";
+} from '../models/game';
+import { PlayerCategoryScores, ScoreSheet } from './scoreSheet';
 
 export const totalScoresForGame = (playersArray: PlayerScore[]) => {
   return playersArray.map((player) => {
     return {
-      score: player.scores.find((score) => score.category === "total").value,
+      score: player.scores.find((score) => score.category === 'total').value,
       player: player.name,
     };
   });
 };
 
-export const scoresForEachPlayer = (games: GameScore[]): PlayerAllScores => {
+export const scoresForEachPlayer = (
+  games: AgricolaGameScore[],
+): PlayerAllScores => {
   return games.reduce((acc, game) => {
     game.players.forEach((player) => {
-      const total = player.scores.find((score) => score.category === "total")
+      const total = player.scores.find((score) => score.category === 'total')
         .value;
       acc[player.name] = acc[player.name]
         ? [...acc[player.name], total]
@@ -29,8 +31,8 @@ export const scoresForEachPlayer = (games: GameScore[]): PlayerAllScores => {
 };
 
 export const categoryScoresForEachPlayer = (
-  games: GameScore[],
-  blankScores: PlayerCategoryScores
+  games: AgricolaGameScore[],
+  blankScores: PlayerCategoryScores,
 ): PlayerCategoryScores => {
   return games.reduce((acc, game) => {
     game.players.forEach((player) => {
@@ -45,7 +47,7 @@ export const categoryScoresForEachPlayer = (
 };
 
 export const averageScoresFromObject = (
-  allScores: PlayerAllScores
+  allScores: PlayerAllScores,
 ): SinglePlayerScore => {
   return Object.keys(allScores).reduce((acc, player) => {
     acc[player] = averageScoreFromArray(allScores[player]);
@@ -54,7 +56,9 @@ export const averageScoresFromObject = (
 };
 
 export const totalScore = (playerScore: PlayerScore): number => {
-  return playerScore.scores.find((score) => score.category === "total").value;
+  return Number(
+    playerScore.scores.find((score) => score.category === 'total').value,
+  );
 };
 
 export const averageScoreFromArray = (scoreArray: number[]): number => {
@@ -62,15 +66,15 @@ export const averageScoreFromArray = (scoreArray: number[]): number => {
   return Number(average.toFixed(2));
 };
 
-export const winCounts = (games: GameScore[]) =>
+export const winCounts = (games: AgricolaGameScore[]) =>
   games.reduce((acc, game): SinglePlayerScore => {
     let totalsForGame = totalScoresForGame(game.players);
 
     let totalScoreArray = totalsForGame.map((player) => player.score);
-    let highScore = Math.max(...totalScoreArray);
+    let highScore = Math.max(...totalScoreArray.map(Number));
 
     if (totalScoreArray.every((score) => score === totalScoreArray[0])) {
-      acc["draw"] ? (acc["draw"] += 1) : (acc["draw"] = 1);
+      acc['draw'] ? (acc['draw'] += 1) : (acc['draw'] = 1);
     } else {
       totalsForGame.forEach((player) => {
         if (player.score === highScore) {

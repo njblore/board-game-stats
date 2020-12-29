@@ -1,0 +1,21 @@
+{
+  "terraformingMars": [
+    {
+      "date": "",
+      "expansion": "prelude",
+      "players": [
+        {
+          "name": "",
+          "corporation": "Credicor",
+          "scores": {
+            "awards": 0,
+            "milestones": 0,
+            "cards": 0,
+            "board": 0,
+            "terraform rating": 0
+          }
+        }
+      ]
+    }
+  ]
+}

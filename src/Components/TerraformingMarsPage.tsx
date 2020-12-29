@@ -6,7 +6,7 @@ const TerraformingMarsPage = () => {
     <div className="page-container">
       <div className="page-header header">
         <div className="image-container">
-          <img src={tmheader}></img>
+          <img src={tmheader} alt="terraforming-mars-header"></img>
         </div>
       </div>
     </div>

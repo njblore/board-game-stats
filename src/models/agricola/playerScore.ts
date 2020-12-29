@@ -1,141 +1,128 @@
-import { CategoryScore } from "./categoryScore";
-
-export interface PlayerScore {
-  name: string;
-  scores: CategoryScore[];
-}
-
-export interface SinglePlayerScore {
-  [player: string]: number;
-}
-
-export interface PlayerAllScores {
-  [playerName: string]: number[];
-}
+import { PlayerScore } from '../game';
 
 export const blankBaseGameScoreSheet: PlayerScore = {
-  name: "",
+  name: '',
   scores: [
     {
-      category: "fields",
+      category: 'fields',
       value: 0,
     },
     {
-      category: "pastures",
+      category: 'pastures',
       value: 0,
     },
     {
-      category: "grain",
+      category: 'grain',
       value: 0,
     },
     {
-      category: "vegetables",
+      category: 'vegetables',
       value: 0,
     },
     {
-      category: "sheep",
+      category: 'sheep',
       value: 0,
     },
     {
-      category: "wild boar",
+      category: 'wild boar',
       value: 0,
     },
     {
-      category: "cattle",
+      category: 'cattle',
       value: 0,
     },
     {
-      category: "unused spaces",
+      category: 'unused spaces',
       value: 0,
     },
     {
-      category: "fenced stables",
+      category: 'fenced stables',
       value: 0,
     },
     {
-      category: "clay rooms",
+      category: 'clay rooms',
       value: 0,
     },
     {
-      category: "stone rooms",
+      category: 'stone rooms',
       value: 0,
     },
     {
-      category: "family members",
+      category: 'family members',
       value: 0,
     },
     {
-      category: "bonus points",
+      category: 'bonus points',
       value: 0,
     },
     {
-      category: "points for cards",
+      category: 'points for cards',
       value: 0,
     },
   ],
 };
 
 export const blankFarmersOfTheMoorScoreSheet: PlayerScore = {
-  name: "",
+  name: '',
   scores: [
     {
-      category: "fields",
+      category: 'fields',
       value: 0,
     },
     {
-      category: "pastures",
+      category: 'pastures',
       value: 0,
     },
     {
-      category: "grain",
+      category: 'grain',
       value: 0,
     },
     {
-      category: "vegetables",
+      category: 'vegetables',
       value: 0,
     },
     {
-      category: "sheep",
+      category: 'sheep',
       value: 0,
     },
     {
-      category: "wild boar",
+      category: 'wild boar',
       value: 0,
     },
     {
-      category: "cattle",
+      category: 'cattle',
       value: 0,
     },
     {
-      category: "unused spaces",
+      category: 'unused spaces',
       value: 0,
     },
     {
-      category: "fenced stables",
+      category: 'fenced stables',
       value: 0,
     },
     {
-      category: "clay rooms",
+      category: 'clay rooms',
       value: 0,
     },
     {
-      category: "stone rooms",
+      category: 'stone rooms',
       value: 0,
     },
     {
-      category: "family members",
+      category: 'family members',
       value: 0,
     },
     {
-      category: "bonus points",
+      category: 'bonus points',
       value: 0,
     },
     {
-      category: "points for cards",
+      category: 'points for cards',
       value: 0,
     },
     {
-      category: "horses",
+      category: 'horses',
       value: 0,
     },
   ],
