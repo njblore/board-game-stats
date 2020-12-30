@@ -27,7 +27,7 @@ const AgricolaPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = `$2b$10$tVk${process.env.REACT_APP_AGRICOLA_API_KEY}`;
+    const pword = `$2b$10$tVk${process.env.REACT_APP_API_KEY}`;
     const location = process.env.REACT_APP_AGRICOLA_LOCATION;
     setIsLoading(true);
     fetchData(pword, location).then((data: apiData) => {

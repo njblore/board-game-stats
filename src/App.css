@@ -1,18 +1,18 @@
 @font-face {
   font-family: dominicaItalic;
-  src: url("./fonts/dominican/DOMII___.TTF");
+  src: url('./fonts/dominican/DOMII___.TTF');
 }
 @font-face {
   font-family: dominica;
-  src: url("./fonts/dominican/DOMISC__.TTF");
+  src: url('./fonts/dominican/DOMISC__.TTF');
 }
 @font-face {
   font-family: raleway;
-  src: url("./fonts/raleway/Raleway-Regular.ttf");
+  src: url('./fonts/raleway/Raleway-Regular.ttf');
 }
 @font-face {
   font-family: ralewayItalic;
-  src: url("./fonts/raleway/Raleway-Italic.ttf");
+  src: url('./fonts/raleway/Raleway-Italic.ttf');
 }
 
 body {
@@ -146,7 +146,7 @@ input {
 
 .header {
   text-align: center;
-  font-family: "raleway";
+  font-family: 'raleway';
   font-size: 0.7em;
   color: black;
   padding: 10px 0;
@@ -159,7 +159,7 @@ input {
 .page-header {
   font-size: 1.3em;
   color: #bd7b1b;
-  font-family: "dominica";
+  font-family: 'dominica';
   grid-row: 1 / span 1;
   grid-column: 1 / span 4;
   align-self: center;
@@ -198,7 +198,7 @@ img {
 }
 
 .stats-container {
-  font-family: "raleway";
+  font-family: 'raleway';
   font-size: 0.6em;
   text-align: center;
   grid-row: 2;
@@ -214,13 +214,13 @@ img {
 }
 .stat-text {
   font-size: 1em;
-  font-family: "ralewayItalic";
+  font-family: 'ralewayItalic';
   color: rgba(20, 148, 20, 1);
 }
 
 .win-stats {
   font-size: 1em;
-  font-family: "ralewayItalic";
+  font-family: 'ralewayItalic';
 }
 
 .radial-container {
@@ -254,8 +254,22 @@ img {
   border: 2pt solid black;
   border-radius: 5px;
   background: lightblue;
-  font-family: "dominica";
+  font-family: 'dominica';
   font-size: 0.7em;
+}
+
+.photo-container {
+  grid-row: 2;
+  grid-column: 2 / span 2;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid rgb(30, 187, 108);
+  border-radius: 5px;
+}
+.photo {
+  height: 410px;
 }
 
 @media screen and (min-width: 1000px) {
