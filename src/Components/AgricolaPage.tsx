@@ -82,7 +82,16 @@ const AgricolaPage = () => {
       </div>
     );
   } else {
-    return <div>loading</div>;
+    return (
+      <div className="page-container">
+        <div className="page-header header">
+          <div className="image-container">
+            <img src={agricola} alt="agricola header"></img>
+          </div>
+        </div>
+        <div>loading...</div>
+      </div>
+    );
   }
 };
 
