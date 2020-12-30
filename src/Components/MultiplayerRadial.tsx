@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { Polar } from "react-chartjs-2";
+import React, { useState } from 'react';
+import { Polar } from 'react-chartjs-2';
 import {
   scoresForEachPlayer,
   averageScoresFromObject,
-} from "../helpers/scoreCalculations";
-import { colours, namedColours } from "../models/agricola/colourScheme";
-import { SinglePlayerScore } from "../models/game";
-
+} from '../helpers/scoreCalculations';
+import { namedColours } from '../models/agricola/colourScheme';
+import { SinglePlayerScore } from '../models/game';
 
 const MultiplayerRadial = (props) => {
   const [set, setSet] = useState(props.multiplayer);
@@ -19,10 +18,10 @@ const MultiplayerRadial = (props) => {
       {
         data: Object.values(playerAverages),
         backgroundColor: Object.keys(playerAverages).map(
-          (player) => namedColours[player]
+          (player) => namedColours[player],
         ),
-        label: "",
-        borderColor: "black",
+        label: '',
+        borderColor: 'black',
         borderWidth: 1,
       },
     ],
@@ -30,11 +29,11 @@ const MultiplayerRadial = (props) => {
   };
   const legendOpts = {
     display: true,
-    position: "right",
+    position: 'right',
     fullWidth: false,
     reverse: false,
     labels: {
-      fontColor: "greysmoke",
+      fontColor: 'greysmoke',
     },
   };
   return (

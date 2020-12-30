@@ -1,10 +1,10 @@
-import React from "react";
-import { totalScore } from "../helpers/scoreCalculations";
+import React from 'react';
+
 const Stats = (props) => {
-  let max = { name: "", score: 0 };
-  let min = { name: "", score: 100 };
-  let overallTotal = 0;
-  let scoreCount = 0;
+  let max = { name: '', score: 0 };
+  let min = { name: '', score: 100 };
+  let overallTotal: number = 0;
+  let scoreCount: number = 0;
   for (let player in props.totals) {
     let playerBest = Math.max(...props.totals[player]);
     let playerWorst = Math.min(...props.totals[player]);
@@ -18,14 +18,16 @@ const Stats = (props) => {
     }
 
     let playerTotal = props.totals[player].reduce((a, v) => (a += v));
+
     overallTotal += playerTotal;
     scoreCount += props.totals[player].length;
   }
+
   let averageScore = overallTotal / scoreCount;
   return (
     <div className="stats-container container">
       <header className="header stats-header">
-        Some stats from our Agricola Games
+        Some stats from our {props.gameName} Games
       </header>
       <p>
         Total Games Recorded:
@@ -36,10 +38,14 @@ const Stats = (props) => {
         <span className="stat-text"> {props.tashVsThom.length}</span> were 2
         player
       </p>
-      <p>
-        And <span className="stat-text"> {props.multiplayer.length}</span> were
-        multiplayer.
-      </p>
+
+      {props.multiplayer !== undefined && (
+        <p>
+          And <span className="stat-text"> {props.multiplayer.length}</span>{' '}
+          were multiplayer.
+        </p>
+      )}
+
       <p>
         The Highest score from all games was
         <span className="stat-text"> {max.score}</span> scored by the

@@ -1,18 +1,18 @@
-import React, { useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { dataPointForTopic } from "../helpers/chartDataManipulation";
-import { colours } from "../models/agricola/colourScheme";
+import React, { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { dataPointForTopic } from '../helpers/chartDataManipulation';
+import { colours } from '../models/agricola/colourScheme';
 
 const ScatterRelationships = (props) => {
-  const [topic, setTopic] = useState("family members");
+  const [topic, setTopic] = useState(props.categories[0]);
 
   const options = {
     responsive: true,
-    labels: dataPointForTopic("family members", props.allGames)
+    labels: dataPointForTopic(props.categories[0], props.allGames)
       .sort((a, b) => (a.x > b.x ? 1 : -1))
       .map((score) => score.y),
     tooltips: {
-      mode: "label",
+      mode: 'label',
     },
     elements: {
       line: {
@@ -26,17 +26,17 @@ const ScatterRelationships = (props) => {
           gridLines: {
             display: false,
           },
-          labels: dataPointForTopic("family members", props.allGames)
+          labels: dataPointForTopic(props.categories[0], props.allGames)
             .sort((a, b) => (a.x > b.x ? 1 : -1))
             .map((score) => score.x),
         },
       ],
       yAxes: [
         {
-          type: "linear",
+          type: 'linear',
           display: true,
-          position: "left",
-          id: "y-axis-1",
+          position: 'left',
+          id: 'y-axis-1',
           gridLines: {
             display: false,
           },
@@ -45,10 +45,10 @@ const ScatterRelationships = (props) => {
           },
         },
         {
-          type: "linear",
+          type: 'linear',
           display: true,
-          position: "right",
-          id: "y-axis-2",
+          position: 'right',
+          id: 'y-axis-2',
           gridLines: {
             display: false,
           },
@@ -63,8 +63,8 @@ const ScatterRelationships = (props) => {
   const data = {
     datasets: [
       {
-        label: "Score",
-        type: "line",
+        label: 'Score',
+        type: 'line',
         data: dataPointForTopic(topic, props.allGames)
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map((score) => score.x),
@@ -75,20 +75,20 @@ const ScatterRelationships = (props) => {
         pointBackgroundColor: colours.pink,
         pointHoverBackgroundColor: colours.orange,
         pointHoverBorderColor: colours.orange,
-        yAxisID: "y-axis-2",
+        yAxisID: 'y-axis-2',
       },
       {
-        type: "bar",
+        type: 'bar',
         label: topic,
         data: dataPointForTopic(topic, props.allGames)
           .sort((a, b) => (a.x > b.x ? 1 : -1))
           .map((score) => score.y),
         fill: false,
         backgroundColor: colours.yellow,
-        borderColor: "black",
+        borderColor: 'black',
         hoverBackgroundColor: colours.purple,
         hoverBorderColor: colours.purple,
-        yAxisID: "y-axis-1",
+        yAxisID: 'y-axis-1',
       },
     ],
   };
@@ -98,36 +98,11 @@ const ScatterRelationships = (props) => {
       <header className="header">Scattered Relationships</header>
       <Bar data={data} options={options}></Bar>
       <div className="button-container">
-        <button
-          className="agricola-button"
-          onClick={() => setTopic("family members")}
-        >
-          Family Members
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setTopic("bonus points")}
-        >
-          Bonus Points
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setTopic("points for cards")}
-        >
-          Points For Cards
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setTopic("stone rooms")}
-        >
-          Stone Hut Rooms
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setTopic("unused spaces")}
-        >
-          Unused Spaces
-        </button>
+        {props.categories.map((cat) => (
+          <button className="agricola-button" onClick={() => setTopic(cat)}>
+            {cat}
+          </button>
+        ))}
       </div>
     </div>
   );

@@ -8,7 +8,10 @@ export interface PlayerScore {
   scores: CategoryScores[];
 }
 
-export type CategoryScores = Record<string, string | number>;
+export interface CategoryScores {
+  category: string;
+  value: number;
+}
 
 export type Corporation =
   | 'Phoblog'

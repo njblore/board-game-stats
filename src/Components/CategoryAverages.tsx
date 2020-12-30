@@ -1,9 +1,9 @@
-import React, { useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { getPlayers } from "../helpers/getPlayers";
-import { blankScoreSheet, PlayerCategoryScores } from "../helpers/scoreSheet";
-import { categoryScoresForEachPlayer } from "../helpers/scoreCalculations";
-import { namedColours } from "../models/agricola/colourScheme";
+import React, { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { getPlayers } from '../helpers/getPlayers';
+import { blankScoreSheet, PlayerCategoryScores } from '../helpers/scoreSheet';
+import { categoryScoresForEachPlayer } from '../helpers/scoreCalculations';
+import { namedColours } from '../models/agricola/colourScheme';
 
 const CategoryAverage = (props) => {
   const [pool, setPool] = useState(props.games);
@@ -12,7 +12,7 @@ const CategoryAverage = (props) => {
   const blankScores: PlayerCategoryScores = blankScoreSheet(players);
   const categoryScores: PlayerCategoryScores = categoryScoresForEachPlayer(
     pool,
-    blankScores
+    blankScores,
   );
 
   let averages: PlayerCategoryScores = players.reduce((acc, player) => {
@@ -24,7 +24,7 @@ const CategoryAverage = (props) => {
     for (let category in categoryScores[player]) {
       if (categoryScores[player][category].length > 0) {
         let total = categoryScores[player][category].reduce(
-          (acc, score) => (acc += score)
+          (acc, score) => (acc += score),
         );
 
         let avg = total / categoryScores[player][category].length;
@@ -36,7 +36,7 @@ const CategoryAverage = (props) => {
   const categories = Object.keys(averages.Thom);
   const getAverages = (name) => {
     return Object.entries(averages[name])
-      .filter(([category, _]) => category !== "total")
+      .filter(([category, _]) => category !== 'total')
       .map(([_, value]) => value);
   };
 
@@ -44,50 +44,52 @@ const CategoryAverage = (props) => {
     return {
       label: player,
       backgroundColor: namedColours[player],
-      borderColor: "black",
+      borderColor: 'black',
       borderWidth: 0.5,
       hoverBackgroundColor: namedColours[player],
-      hoverBorderColor: "black",
+      hoverBorderColor: 'black',
       data: getAverages(player),
     };
   });
   const data = {
-    labels: categories.filter((category) => category !== "total"),
+    labels: categories.filter((category) => category !== 'total'),
     datasets: sets,
   };
   const legendOpts = {
     display: true,
-    position: "top",
+    position: 'top',
     fullWidth: false,
     reverse: false,
     labels: {
-      fontColor: "greysmoke",
+      fontColor: 'greysmoke',
     },
   };
 
   return (
     <div className="category-container container">
       <header className="header">Category Averages</header>
-      <div className="button-container">
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.twoPlayer)}
-        >
-          Two Player
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.multiplayer)}
-        >
-          Multiplayer
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.games)}
-        >
-          All Games
-        </button>
-      </div>
+      {props.multiplayer && (
+        <div className="button-container">
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.twoPlayer)}
+          >
+            Two Player
+          </button>
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.multiplayer)}
+          >
+            Multiplayer
+          </button>
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.games)}
+          >
+            All Games
+          </button>
+        </div>
+      )}
       <Bar data={data} legend={legendOpts}></Bar>
     </div>
   );

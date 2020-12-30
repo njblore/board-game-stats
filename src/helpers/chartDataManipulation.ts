@@ -9,7 +9,7 @@ export const dataPointForTopic = (
     game.players.forEach((player) => {
       acc.push({
         y: player.scores.find(
-          (score) => score.category === topic && Number(score.value).toFixed,
+          (score) => score.category === topic && score.value.toFixed,
         ).value,
         x: totalScore(player),
       });

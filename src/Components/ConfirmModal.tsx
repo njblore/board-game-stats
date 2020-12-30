@@ -1,7 +1,5 @@
-import { env } from "process";
-import React, { useState } from "react";
-import { totalScore } from "../helpers/scoreCalculations";
-import { SinglePlayerScore } from "../models/game";
+import React, { useState } from 'react';
+import { SinglePlayerScore } from '../models/game';
 
 interface PropsInterface {
   cancel;

@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { Bar } from "react-chartjs-2";
-import { getPlayers } from "../helpers/getPlayers";
-import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import { AgricolaGameScore, PlayerAllScores } from "../models/game";
-import { dateFromString } from "../helpers/date";
-import { namedColours } from "../models/agricola/colourScheme";
+import React, { useState } from 'react';
+import { Bar } from 'react-chartjs-2';
+import { getPlayers } from '../helpers/getPlayers';
+import { scoresForEachPlayer } from '../helpers/scoreCalculations';
+import { AgricolaGameScore, PlayerAllScores } from '../models/game';
+import { dateFromString } from '../helpers/date';
+import { namedColours } from '../models/agricola/colourScheme';
 
 const FinalScoresBar = (props) => {
   const [pool, setPool] = useState<AgricolaGameScore[]>(props.twoPlayer);
@@ -16,10 +16,10 @@ const FinalScoresBar = (props) => {
     return {
       label: player,
       backgroundColor: namedColours[player],
-      borderColor: "black",
+      borderColor: 'black',
       borderWidth: 0.5,
-      hoverBackgroundColor: "rgb(54, 174, 201)",
-      hoverBorderColor: "black",
+      hoverBackgroundColor: 'rgb(54, 174, 201)',
+      hoverBorderColor: 'black',
       data: scores[player],
     };
   });
@@ -31,7 +31,7 @@ const FinalScoresBar = (props) => {
       scales: {
         xAxes: [
           {
-            type: "time",
+            type: 'time',
           },
         ],
       },
@@ -41,26 +41,30 @@ const FinalScoresBar = (props) => {
   return (
     <div className="bar-container container">
       <header className="header">Scores Over Time</header>
-      <div className="button-container">
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.twoPlayer)}
-        >
-          Two Player
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.multiplayer)}
-        >
-          Multiplayer
-        </button>
-        <button
-          className="agricola-button"
-          onClick={() => setPool(props.games)}
-        >
-          All Games
-        </button>
-      </div>
+      {props.multiplayer !== undefined && (
+        <div className="button-container">
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.twoPlayer)}
+          >
+            Two Player
+          </button>
+
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.multiplayer)}
+          >
+            Multiplayer
+          </button>
+
+          <button
+            className="agricola-button"
+            onClick={() => setPool(props.games)}
+          >
+            All Games
+          </button>
+        </div>
+      )}
       <Bar data={data} options={{ maintainAspectRatio: false }} />
     </div>
   );

@@ -1,12 +1,16 @@
-import React, { useState } from "react";
-import { dateFromString, dateRegex } from "../helpers/date";
-import { AgricolaGameScore, PlayerScore , SinglePlayerScore} from "../models/game";
+import React, { useState } from 'react';
+import { dateFromString, dateRegex } from '../helpers/date';
+import {
+  AgricolaGameScore,
+  PlayerScore,
+  SinglePlayerScore,
+} from '../models/game';
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-} from "../models/agricola/playerScore";
-import AgricolaScoreSheet from "./AgricolaScoreSheet";
-import ConfirmScoresModal from "./ConfirmModal";
+} from '../models/agricola/playerScore';
+import AgricolaScoreSheet from './AgricolaScoreSheet';
+import ConfirmScoresModal from './ConfirmModal';
 
 interface PropsInterface {
   hideModal;
@@ -25,13 +29,13 @@ const AgricolaScoreModal = (props: PropsInterface) => {
       2: scoreSheet,
       3: scoreSheet,
       4: scoreSheet,
-    }
+    },
   );
   const [numberOfPlayers, setNumberOfPlayers] = useState(2);
 
   const [date, setDate] = useState<string>();
-  const [location, setLocation] = useState<string>();
-  const [gameData, setGameData] = useState<AgricolaGameScore>();
+  const [location] = useState<string>();
+  const [, setGameData] = useState<AgricolaGameScore>();
   const [confirmPopup, setConfirmPopup] = useState<boolean>(false);
   const [totals, setTotals] = useState<SinglePlayerScore>();
 
@@ -56,9 +60,8 @@ const AgricolaScoreModal = (props: PropsInterface) => {
       Object.entries(playerScores).forEach(([index, player]) => {
         if (Number(index) < numberOfPlayers) {
           const playerTotal = player.scores.reduce((total, categoryScore) => {
-            return (total += Number(categoryScore.value));
+            return (total += categoryScore.value);
           }, 0);
-          console.log(player.name);
           setTotals({ [player.name]: playerTotal, ...totals });
         }
       });
@@ -75,7 +78,6 @@ const AgricolaScoreModal = (props: PropsInterface) => {
   };
 
   const handlePlayerScores = (scores: PlayerScore, index: number) => {
-    console.log("scores", scores);
     setPlayerScores({ ...playerScores, [index]: scores });
   };
 
@@ -197,7 +199,7 @@ const AgricolaScoreModal = (props: PropsInterface) => {
                   }
                   baseGame={gameType}
                 ></AgricolaScoreSheet>
-              )
+              ),
           )}
         </div>
       </div>

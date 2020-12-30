@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from "react";
-import PieCharts from "./PieCharts";
-import FinalScoresBar from "./FinalScoresBar";
-import CategoryAverage from "./CategoryAverages";
-import Stats from "./Stats";
-import MultiplayerRadial from "./MultiplayerRadial";
-import ScatterRelationships from "./ScatterRelationships";
-import { scoresForEachPlayer } from "../helpers/scoreCalculations";
-import { AgricolaGameScore, PlayerAllScores } from "../models/game";
-import agricola from "../images/agricolaheader.png";
-import { dateRegex } from "../helpers/date";
-import { fetchData } from "../helpers/fetchData";
+import React, { useState, useEffect } from 'react';
+import PieCharts from './PieCharts';
+import FinalScoresBar from './FinalScoresBar';
+import CategoryAverage from './CategoryAverages';
+import Stats from './Stats';
+import MultiplayerRadial from './MultiplayerRadial';
+import ScatterRelationships from './ScatterRelationships';
+import {
+  getGameCategories,
+  scoresForEachPlayer,
+} from '../helpers/scoreCalculations';
+import { AgricolaGameScore, PlayerAllScores } from '../models/game';
+import agricola from '../images/agricolaheader.png';
+import { dateRegex } from '../helpers/date';
+import { fetchData } from '../helpers/fetchData';
 
 interface apiData {
   agricolaGames: AgricolaGameScore[];
@@ -20,6 +23,7 @@ const AgricolaPage = () => {
   const [totals, setTotals] = useState<PlayerAllScores>();
   const [tashVsThom, setTashVsThom] = useState<AgricolaGameScore[]>();
   const [multiplayer, setMultiplayer] = useState<AgricolaGameScore[]>();
+  const [categories, setCategories] = useState<string[]>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -30,11 +34,12 @@ const AgricolaPage = () => {
       setAllGames(data.agricolaGames);
       setTotals(scoresForEachPlayer(data.agricolaGames));
       setTashVsThom(
-        data.agricolaGames.filter((game) => game.players.length === 2)
+        data.agricolaGames.filter((game) => game.players.length === 2),
       );
       setMultiplayer(
-        data.agricolaGames.filter((game) => game.players.length > 2)
+        data.agricolaGames.filter((game) => game.players.length > 2),
       );
+      setCategories(getGameCategories(data.agricolaGames[0]));
       setIsLoading(false);
     });
   }, []);
@@ -52,6 +57,7 @@ const AgricolaPage = () => {
           tashVsThom={tashVsThom}
           multiplayer={multiplayer}
           allGames={allGames}
+          gameName={'Agricola'}
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
         <FinalScoresBar
@@ -69,7 +75,10 @@ const AgricolaPage = () => {
           twoPlayer={tashVsThom}
           allGames={allGames}
         ></MultiplayerRadial>
-        <ScatterRelationships allGames={allGames}></ScatterRelationships>
+        <ScatterRelationships
+          allGames={allGames}
+          categories={categories}
+        ></ScatterRelationships>
       </div>
     );
   } else {

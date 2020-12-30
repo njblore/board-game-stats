@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from 'react';
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-} from "../models/agricola/playerScore";
-import { PlayerScore } from "../models/game";
+} from '../models/agricola/playerScore';
+import { PlayerScore } from '../models/game';
 
 interface Props {
   playerScores: PlayerScore;
@@ -33,12 +33,14 @@ const AgricolaScoreSheet = (props: Props) => {
       <div className="category-scores-grid">
         {scoreSheet.scores.map((cat, i) => (
           <label className="category-label" key={i}>
-            {cat.category[0].toUpperCase().concat(cat.category.toString().slice(1))}
+            {cat.category[0]
+              .toUpperCase()
+              .concat(cat.category.toString().slice(1))}
             <input
               type="number"
               value={
                 props.playerScores.scores.find(
-                  (sc) => sc.category === cat.category
+                  (sc) => sc.category === cat.category,
                 ).value
               }
               className="category-input"
@@ -48,7 +50,7 @@ const AgricolaScoreSheet = (props: Props) => {
                   scores: [
                     { category: cat.category, value: e.target.value },
                     ...props.playerScores.scores.filter(
-                      (sc) => sc.category !== cat.category
+                      (sc) => sc.category !== cat.category,
                     ),
                   ],
                 })
