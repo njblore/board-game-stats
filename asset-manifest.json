@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/project-yule/static/css/main.4bf62951.chunk.css",
-    "main.js": "/project-yule/static/js/main.89f95d9c.chunk.js",
-    "main.js.map": "/project-yule/static/js/main.89f95d9c.chunk.js.map",
+    "main.css": "/project-yule/static/css/main.962d3c81.chunk.css",
+    "main.js": "/project-yule/static/js/main.63b33917.chunk.js",
+    "main.js.map": "/project-yule/static/js/main.63b33917.chunk.js.map",
     "runtime-main.js": "/project-yule/static/js/runtime-main.3bae13a4.js",
     "runtime-main.js.map": "/project-yule/static/js/runtime-main.3bae13a4.js.map",
-    "static/js/2.96f26e7d.chunk.js": "/project-yule/static/js/2.96f26e7d.chunk.js",
-    "static/js/2.96f26e7d.chunk.js.map": "/project-yule/static/js/2.96f26e7d.chunk.js.map",
+    "static/js/2.df2963b4.chunk.js": "/project-yule/static/js/2.df2963b4.chunk.js",
+    "static/js/2.df2963b4.chunk.js.map": "/project-yule/static/js/2.df2963b4.chunk.js.map",
     "index.html": "/project-yule/index.html",
-    "precache-manifest.53645e656b1f4582c4ec0766802a2acd.js": "/project-yule/precache-manifest.53645e656b1f4582c4ec0766802a2acd.js",
+    "precache-manifest.98852e6a71e4fc81153d2e241c4e50ff.js": "/project-yule/precache-manifest.98852e6a71e4fc81153d2e241c4e50ff.js",
     "service-worker.js": "/project-yule/service-worker.js",
-    "static/css/main.4bf62951.chunk.css.map": "/project-yule/static/css/main.4bf62951.chunk.css.map",
-    "static/js/2.96f26e7d.chunk.js.LICENSE.txt": "/project-yule/static/js/2.96f26e7d.chunk.js.LICENSE.txt",
+    "static/css/main.962d3c81.chunk.css.map": "/project-yule/static/css/main.962d3c81.chunk.css.map",
+    "static/js/2.df2963b4.chunk.js.LICENSE.txt": "/project-yule/static/js/2.df2963b4.chunk.js.LICENSE.txt",
     "static/media/App.css": "/project-yule/static/media/Raleway-Regular.75b4247f.ttf",
     "static/media/agricolaheader.png": "/project-yule/static/media/agricolaheader.a09a232b.png",
-    "static/media/tmboxheader.png": "/project-yule/static/media/tmboxheader.7c6f7153.png"
+    "static/media/tmboxheader.png": "/project-yule/static/media/tmboxheader.7c6f7153.png",
+    "static/media/wingspanbirdheader.jpeg": "/project-yule/static/media/wingspanbirdheader.9d57b42b.jpeg",
+    "static/media/wingspancards.jpeg": "/project-yule/static/media/wingspancards.916892aa.jpeg"
   },
   "entrypoints": [
     "static/js/runtime-main.3bae13a4.js",
-    "static/js/2.96f26e7d.chunk.js",
-    "static/css/main.4bf62951.chunk.css",
-    "static/js/main.89f95d9c.chunk.js"
+    "static/js/2.df2963b4.chunk.js",
+    "static/css/main.962d3c81.chunk.css",
+    "static/js/main.63b33917.chunk.js"
   ]
 }

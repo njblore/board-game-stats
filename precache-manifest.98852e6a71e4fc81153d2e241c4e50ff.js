@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0dac729387dd1635a5a45719e64b7128",
+    "revision": "dab6f23ab4e832b2e8a7b2b761bee810",
     "url": "/project-yule/index.html"
   },
   {
-    "revision": "1285c91d7f5015ffaf32",
-    "url": "/project-yule/static/css/main.4bf62951.chunk.css"
+    "revision": "60b3975463010d180b64",
+    "url": "/project-yule/static/css/main.962d3c81.chunk.css"
   },
   {
-    "revision": "32ca9214592664c9beaf",
-    "url": "/project-yule/static/js/2.96f26e7d.chunk.js"
+    "revision": "e316b2382202d68ea1ca",
+    "url": "/project-yule/static/js/2.df2963b4.chunk.js"
   },
   {
-    "revision": "4db0b4b7fd2c7a0aaf4845dcd6ed7f11",
-    "url": "/project-yule/static/js/2.96f26e7d.chunk.js.LICENSE.txt"
+    "revision": "a51e9d6930fab2afb4bd44dab85916d3",
+    "url": "/project-yule/static/js/2.df2963b4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1285c91d7f5015ffaf32",
-    "url": "/project-yule/static/js/main.89f95d9c.chunk.js"
+    "revision": "60b3975463010d180b64",
+    "url": "/project-yule/static/js/main.63b33917.chunk.js"
   },
   {
     "revision": "1dd227568f0cdd1346da",
@@ -46,5 +46,13 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "7c6f7153487a51930a1c132681a19742",
     "url": "/project-yule/static/media/tmboxheader.7c6f7153.png"
+  },
+  {
+    "revision": "9d57b42be16d49215a1fcae62dfe833e",
+    "url": "/project-yule/static/media/wingspanbirdheader.9d57b42b.jpeg"
+  },
+  {
+    "revision": "916892aa2c66642078795e2048e7a735",
+    "url": "/project-yule/static/media/wingspancards.916892aa.jpeg"
   }
 ]);
