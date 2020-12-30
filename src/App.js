@@ -6,7 +6,7 @@ import TerraformingMarsPage from "./Components/TerraformingMarsPage";
 import WingspanPage from "./Components/WingspanPage";
 
 const App = () => {
-  const [view, setView] = useState("Agricola");
+  const [view, setView] = useState("Wingspan");
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -19,7 +19,6 @@ const App = () => {
           </button>
           <button onClick={() => setView("Wingspan")}>Wingspan</button>
         </div>
-        <button onClick={() => setShowModal(true)}>Agricola Scoresheet</button>
       </nav>
       {view === "Agricola" && <AgricolaPage></AgricolaPage>}
       {view === "TerraformingMars" &&

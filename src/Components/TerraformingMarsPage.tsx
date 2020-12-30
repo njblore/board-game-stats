@@ -1,5 +1,5 @@
-import React from "react";
-import tmheader from "../images/tmboxheader.png";
+import React from 'react';
+import tmheader from '../images/tmboxheader.png';
 
 const TerraformingMarsPage = () => {
   return (
@@ -9,6 +9,7 @@ const TerraformingMarsPage = () => {
           <img src={tmheader} alt="terraforming-mars-header"></img>
         </div>
       </div>
+      <div>Coming soon...</div>
     </div>
   );
 };

@@ -245,9 +245,10 @@ img {
 
 .button-container {
   display: flex;
-  max-width: 100%;
+  max-width: 90%;
   justify-content: space-around;
-  padding: 10px 0;
+  margin: 10px auto;
+  flex-wrap: wrap;
 }
 
 .agricola-button {
