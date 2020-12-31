@@ -7,7 +7,7 @@ import {
 import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
 import wingspancards from '../images/wingspancards.jpeg';
 import { GameScore, PlayerAllScores } from '../models/game';
-import CategoryAverage from './CategoryAverages';
+import CategoryAverage from './CategoryScores';
 import FinalScoresBar from './ScoresOverTime';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';

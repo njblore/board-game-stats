@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import { Bar, Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 import { getPlayers } from '../helpers/getPlayers';
 import { scoresForEachPlayer } from '../helpers/scoreCalculations';
-import { AgricolaGameScore, PlayerAllScores } from '../models/game';
+import { GameScore, PlayerAllScores } from '../models/game';
 import { dateFromString } from '../helpers/date';
 import { namedColours } from '../models/agricola/colourScheme';
 
 const FinalScoresBar = (props) => {
-  const [pool, setPool] = useState<AgricolaGameScore[]>(props.twoPlayer);
+  const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);
 
   const players = getPlayers(pool);
   const scores: PlayerAllScores = scoresForEachPlayer(pool);

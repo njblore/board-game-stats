@@ -273,6 +273,10 @@ img {
   height: 410px;
 }
 
+.highlighted {
+  background: palegoldenrod;
+}
+
 @media screen and (min-width: 1000px) {
   .page-container {
     display: grid;

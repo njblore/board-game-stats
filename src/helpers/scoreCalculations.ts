@@ -5,7 +5,10 @@ import {
   PlayerScore,
   SinglePlayerScore,
 } from '../models/game';
-import { PlayerCategoryScores } from './scoreSheet';
+import {
+  AllCategoryScoresForPlayer,
+  IndividualCategoryScores,
+} from './scoreSheet';
 
 export const totalScoresForGame = (playersArray: PlayerScore[]) => {
   return playersArray.map((player) => {
@@ -30,19 +33,22 @@ export const scoresForEachPlayer = (games: GameScore[]): PlayerAllScores => {
 };
 
 export const categoryScoresForEachPlayer = (
-  games: AgricolaGameScore[],
-  blankScores: PlayerCategoryScores,
-): PlayerCategoryScores => {
+  games: GameScore[],
+): AllCategoryScoresForPlayer => {
   return games.reduce((acc, game) => {
     game.players.forEach((player) => {
       for (let category of player.scores) {
-        acc[player.name][category.category]
-          ? acc[player.name][category.category].push(category.value)
-          : (acc[player.name][category.category] = [category.value]);
+        if (acc[player.name]) {
+          acc[player.name][category.category]
+            ? acc[player.name][category.category].push(category.value)
+            : (acc[player.name][category.category] = [category.value]);
+        } else {
+          acc[player.name] = { [category.category]: [category.value] };
+        }
       }
     });
     return acc;
-  }, blankScores);
+  }, {} as AllCategoryScoresForPlayer);
 };
 
 export const getGameCategories = (game: GameScore) => {
