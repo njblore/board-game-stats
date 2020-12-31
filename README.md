@@ -1,3 +1,3 @@
 ## Boardgame Scores App
 
-A simple web app displaying scores from my board games, Agricola and Terraforming Mars (soon)!
+A simple web app displaying scores from board games, built with React using reactcharts-js to display the data and hosted on github pages.
