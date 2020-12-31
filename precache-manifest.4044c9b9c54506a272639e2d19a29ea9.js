@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "205396a4241c26004ead55a76eb0c29c",
+    "revision": "31452a42943f7ba0fd0a1b8f2b639e88",
     "url": "/project-yule/index.html"
   },
   {
-    "revision": "140d6cb626d28b304190",
-    "url": "/project-yule/static/css/main.962d3c81.chunk.css"
+    "revision": "b083839916ba34b95f37",
+    "url": "/project-yule/static/css/main.ce5d2292.chunk.css"
   },
   {
-    "revision": "9e2e905fbf097f4bcba8",
-    "url": "/project-yule/static/js/2.c91add92.chunk.js"
+    "revision": "57c91490637f3a6f4063",
+    "url": "/project-yule/static/js/2.b4a3c0b7.chunk.js"
   },
   {
     "revision": "a51e9d6930fab2afb4bd44dab85916d3",
-    "url": "/project-yule/static/js/2.c91add92.chunk.js.LICENSE.txt"
+    "url": "/project-yule/static/js/2.b4a3c0b7.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "140d6cb626d28b304190",
-    "url": "/project-yule/static/js/main.533265f3.chunk.js"
+    "revision": "b083839916ba34b95f37",
+    "url": "/project-yule/static/js/main.e82d78a7.chunk.js"
   },
   {
     "revision": "1dd227568f0cdd1346da",
