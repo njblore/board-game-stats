@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PieCharts from './PieCharts';
-import FinalScoresBar from './FinalScoresBar';
+import FinalScoresBar from './ScoresOverTime';
 import CategoryAverage from './CategoryAverages';
 import Stats from './Stats';
 import MultiplayerRadial from './MultiplayerRadial';

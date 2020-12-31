@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Line } from 'react-chartjs-2';
 import { getPlayers } from '../helpers/getPlayers';
 import { scoresForEachPlayer } from '../helpers/scoreCalculations';
 import { AgricolaGameScore, PlayerAllScores } from '../models/game';
@@ -15,12 +15,26 @@ const FinalScoresBar = (props) => {
   const sets = players.map((player, i) => {
     return {
       label: player,
-      backgroundColor: namedColours[player],
-      borderColor: 'black',
-      borderWidth: 0.5,
+      fill: false,
+      borderColor: namedColours[player],
+      borderWidth: 2.0,
       hoverBackgroundColor: 'rgb(54, 174, 201)',
       hoverBorderColor: 'black',
       data: scores[player],
+      lineTension: 0.1,
+      borderCapStyle: 'butt',
+      borderDash: [],
+      borderDashOffset: 0.0,
+      borderJoinStyle: 'miter',
+      pointBorderColor: namedColours[player],
+      pointBackgroundColor: '#fff',
+      pointBorderWidth: 1,
+      pointHoverRadius: 5,
+      pointHoverBackgroundColor: namedColours[player],
+      pointHoverBorderColor: namedColours[player],
+      pointHoverBorderWidth: 2,
+      pointRadius: 1,
+      pointHitRadius: 10,
     };
   });
 
@@ -65,7 +79,7 @@ const FinalScoresBar = (props) => {
           </button>
         </div>
       )}
-      <Bar data={data} options={{ maintainAspectRatio: false }} />
+      <Line data={data} options={{ maintainAspectRatio: false }} />
     </div>
   );
 };
