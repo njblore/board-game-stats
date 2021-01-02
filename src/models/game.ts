@@ -25,7 +25,10 @@ export type Corporation =
   | 'Tharsis Republic'
   | 'Thorgate'
   | 'Teractor'
+  | 'Basic'
   | 'UNMI';
+
+export type Expansion = 'Prelude';
 
 export interface AgricolaGameScore extends GameScore {
   location: string;
@@ -33,25 +36,12 @@ export interface AgricolaGameScore extends GameScore {
 
 export interface TMGameScore extends GameScore {
   players: TMPlayerScore[];
-  expansion?: string;
+  expansion?: Expansion;
 }
 
 export interface TMPlayerScore extends PlayerScore {
   corporation: Corporation;
 }
-
-// export interface TMCategoryScores {
-//   awards: number;
-//   milestones: number;
-//   cards: number;
-//   board: number;
-//   'terraform rating': number;
-// }
-
-// export interface AgricolaCategoryScore extends CategoryScore {
-//   category: string;
-//   value: number;
-// }
 
 export interface SinglePlayerScore {
   [player: string]: number;

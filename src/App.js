@@ -12,13 +12,11 @@ const App = () => {
   return (
     <div className="App">
       <nav className="navbar">
-        <div>
           <button onClick={() => setView("Agricola")}>Agricola</button>
           <button onClick={() => setView("TerraformingMars")}>
             Terraforming Mars
           </button>
           <button onClick={() => setView("Wingspan")}>Wingspan</button>
-        </div>
       </nav>
       {view === "Agricola" && <AgricolaPage></AgricolaPage>}
       {view === "TerraformingMars" &&

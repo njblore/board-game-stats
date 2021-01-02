@@ -1,5 +1,4 @@
-
-const scores = {
+{
   "tmgames": [
     {
       "date": "28/12/2019",
@@ -809,37 +808,3 @@ const scores = {
     }
   ]
 }
-
-
-
-
-
-const util = require("util");
-const fs = require("fs");
-
-const convertedCats = scores.tmgames.map((game) => {
-  game.players.map((player) => {
-    console.log(player.scores)
-    const catScores = Object.entries(player.scores).reduce(
-      (acc, [key, value]) => {
-        acc.push({ category: key, value: Number(value) });
-        return acc;
-      },
-      []
-    );
-    const totalScore = Object.values(player.scores).reduce(
-      (acc, val) => (acc += val)
-    );
-    player.scores = catScores;
-    player.scores.push({ category: "total", value: totalScore });
-
-    return player;
-  });
-  return game;
-});
-
-console.log(util.inspect(convertedCats, false, null, true /* enable colors */));
-fs.writeFileSync(
-  "formattedTMScores.json",
-  JSON.stringify({ games: convertedCats })
-);

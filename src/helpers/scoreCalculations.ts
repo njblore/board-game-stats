@@ -52,9 +52,8 @@ export const categoryScoresForEachPlayer = (
 };
 
 export const getGameCategories = (game: GameScore) => {
-  return game.players[0].scores
-    .map((score) => score['category'])
-    .filter((category) => category !== 'total');
+  return game.players[0].scores.map((score) => score['category']);
+  // .filter((category) => category !== 'total');
 };
 
 export const averageScoresFromObject = (

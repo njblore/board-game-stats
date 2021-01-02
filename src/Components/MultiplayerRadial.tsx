@@ -5,9 +5,15 @@ import {
   averageScoresFromObject,
 } from '../helpers/scoreCalculations';
 import { namedColours } from '../models/agricola/colourScheme';
-import { SinglePlayerScore } from '../models/game';
+import { GameScore, SinglePlayerScore } from '../models/game';
 
-const MultiplayerRadial = (props) => {
+interface Props {
+  multiplayer: GameScore[];
+  twoPlayer: GameScore[];
+  allGames: GameScore[];
+}
+
+const MultiplayerRadial = (props: Props) => {
   const [set, setSet] = useState(props.multiplayer);
   let allScores = scoresForEachPlayer(set);
 

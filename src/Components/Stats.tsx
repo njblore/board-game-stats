@@ -1,6 +1,15 @@
 import React from 'react';
+import { GameScore, PlayerAllScores } from '../models/game';
 
-const Stats = (props) => {
+interface Props {
+  totals: PlayerAllScores;
+  tashVsThom: GameScore[];
+  gameName: string;
+  multiplayer?: GameScore[];
+  allGames?: GameScore[];
+}
+
+const Stats = (props: Props) => {
   let max = { name: '', score: 0 };
   let min = { name: '', score: 100 };
   let overallTotal: number = 0;
@@ -59,7 +68,7 @@ const Stats = (props) => {
         <span className="stat-text"> {min.name}</span>!
       </p>
       <p>
-        The average score across all games is as respectable
+        The average score across all games is a respectable
         <span className="stat-text"> {averageScore.toFixed(2)}</span>
       </p>
     </div>

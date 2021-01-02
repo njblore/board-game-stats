@@ -25,7 +25,14 @@ body {
 
 .navbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
+  position: fixed;
+  width: 100vw;
+  background: #fff;
+  height: 5vh;
+  align-items: center;
+  top: 0;
+  left: 5vw;
 }
 
 .modal {
@@ -119,7 +126,7 @@ input {
 
 .page-container {
   width: 90vw;
-  margin: 0 auto;
+  margin: 5vh auto 0 auto;
 }
 
 .pie-container {
@@ -283,7 +290,7 @@ img {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: min-content;
     gap: 20px;
-    margin: 0 auto 5vh auto;
+    margin: 5vh auto;
   }
   .image-container {
     height: 200px;

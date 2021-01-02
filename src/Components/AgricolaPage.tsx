@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PieCharts from './PieCharts';
 import FinalScoresBar from './ScoresOverTime';
-import CategoryAverage from './CategoryScores';
+import CategoryScores from './CategoryScores';
 import Stats from './Stats';
 import MultiplayerRadial from './MultiplayerRadial';
 import ScatterRelationships from './ScatterRelationships';
@@ -65,11 +65,7 @@ const AgricolaPage = () => {
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
           multiplayer={multiplayer.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
-        <CategoryAverage
-          games={allGames}
-          twoPlayer={tashVsThom}
-          multiplayer={multiplayer}
-        ></CategoryAverage>
+        <CategoryScores games={allGames}></CategoryScores>
         <MultiplayerRadial
           multiplayer={multiplayer}
           twoPlayer={tashVsThom}

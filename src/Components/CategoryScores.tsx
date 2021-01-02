@@ -8,14 +8,18 @@ import {
 } from '../helpers/scoreCalculations';
 import { GameScore } from '../models/game';
 
-const CategoryAverage = (props) => {
+interface Props {
+  games: GameScore[];
+}
+
+const CategoryScores = (props: Props) => {
   const [pool] = useState<GameScore[]>(props.games);
   const [player, setPlayer] = useState<string>('Tash');
 
   const players = getPlayers(pool).sort();
 
   const categoryScores = categoryScoresForEachPlayer(pool);
-
+  const categories = getGameCategories(pool[0]);
   let playerScores: PlayerCategoryScores = players.reduce((acc, player) => {
     acc[player] = {};
     return acc;
@@ -23,19 +27,15 @@ const CategoryAverage = (props) => {
 
   for (let player in categoryScores) {
     for (let category in categoryScores[player]) {
-      if (category !== 'total') {
-        let high = Math.max(...categoryScores[player][category]);
-        let low = Math.min(...categoryScores[player][category]);
-        playerScores[player][category] = { high, low };
-      }
+      let high = Math.max(...categoryScores[player][category]);
+      let low = Math.min(...categoryScores[player][category]);
+      playerScores[player][category] = { high, low };
     }
   }
 
-  const categories = getGameCategories(pool[0]);
-
   const highSet = {
     label: 'High',
-    backgroundColor: 'rgb(65,177,249)',
+    backgroundColor: 'rgb(65,177,249, 0.7)',
     borderColor: 'black',
     borderWidth: 0.5,
     hoverBorderColor: 'black',
@@ -44,7 +44,7 @@ const CategoryAverage = (props) => {
 
   const lowSet = {
     label: 'Low',
-    backgroundColor: 'rgb( 255, 144, 67 )',
+    backgroundColor: 'rgb( 255, 144, 67 , 0.8)',
     borderColor: 'black',
     borderWidth: 0.5,
     hoverBorderColor: 'black',
@@ -68,7 +68,7 @@ const CategoryAverage = (props) => {
 
   return (
     <div className="category-container container">
-      <header className="header">Category Averages</header>
+      <header className="header">Category Breakdown</header>
       <div className="button-container">
         {players.map((p) => (
           <button
@@ -84,4 +84,4 @@ const CategoryAverage = (props) => {
   );
 };
 
-export default CategoryAverage;
+export default CategoryScores;

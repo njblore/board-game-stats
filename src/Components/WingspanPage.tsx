@@ -7,7 +7,7 @@ import {
 import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
 import wingspancards from '../images/wingspancards.jpeg';
 import { GameScore, PlayerAllScores } from '../models/game';
-import CategoryAverage from './CategoryScores';
+import CategoryScores from './CategoryScores';
 import FinalScoresBar from './ScoresOverTime';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';
@@ -66,10 +66,7 @@ const WingspanPage = () => {
           games={allGames.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
-        <CategoryAverage
-          games={allGames}
-          twoPlayer={tashVsThom}
-        ></CategoryAverage>
+        <CategoryScores games={allGames}></CategoryScores>
         <ScatterRelationships
           allGames={allGames}
           categories={categories}
