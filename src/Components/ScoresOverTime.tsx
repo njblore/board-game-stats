@@ -58,21 +58,27 @@ const FinalScoresBar = (props) => {
       {props.multiplayer !== undefined && (
         <div className="button-container">
           <button
-            className="agricola-button"
+            className={`agricola-button ${
+              pool === props.twoPlayer ? 'highlighted' : ''
+            }`}
             onClick={() => setPool(props.twoPlayer)}
           >
             Two Player
           </button>
 
           <button
-            className="agricola-button"
+            className={`agricola-button ${
+              pool === props.multiplayer ? 'highlighted' : ''
+            }`}
             onClick={() => setPool(props.multiplayer)}
           >
             Multiplayer
           </button>
 
           <button
-            className="agricola-button"
+            className={`agricola-button ${
+              pool === props.games ? 'highlighted' : ''
+            }`}
             onClick={() => setPool(props.games)}
           >
             All Games

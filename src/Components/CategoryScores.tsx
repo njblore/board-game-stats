@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { Radar } from 'react-chartjs-2';
 import { getPlayers } from '../helpers/getPlayers';
 import { PlayerCategoryScores } from '../helpers/scoreSheet';
-import {
-  categoryScoresForEachPlayer,
-  getGameCategories,
-} from '../helpers/scoreCalculations';
+import { categoryScoresForEachPlayer } from '../helpers/scoreCalculations';
 import { GameScore } from '../models/game';
+import { getGameCategories } from '../helpers/setData';
 
 interface Props {
   games: GameScore[];

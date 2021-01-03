@@ -1,17 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { dateRegex } from '../helpers/date';
-import {
-  getGameCategories,
-  scoresForEachPlayer,
-} from '../helpers/scoreCalculations';
-import { divideGamesByPlayerCount } from '../helpers/setData';
-import tmheader from '../images/tmboxheader.png';
-import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
+// Components
 import CategoryScores from './CategoryScores';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';
 import FinalScoresBar from './ScoresOverTime';
 import Stats from './Stats';
+// Models
+import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
+// Data
+import tmheader from '../images/tmboxheader.png';
+// Helpers
+import { dateRegex } from '../helpers/date';
+import { scoresForEachPlayer } from '../helpers/scoreCalculations';
+import {
+  getGameCategories,
+  divideGamesByPlayerCount,
+} from '../helpers/setData';
 
 const TerraformingMarsPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
@@ -38,7 +42,7 @@ const TerraformingMarsPage = (props: GamePageProps) => {
             <img src={tmheader} alt="terraforming-mars-header"></img>
           </div>
         </div>
-        <div className="container photo-container"></div>
+        <div className="container"></div>
         <Stats
           totals={totals}
           tashVsThom={tashVsThom}

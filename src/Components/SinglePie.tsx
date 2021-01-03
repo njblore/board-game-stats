@@ -7,7 +7,6 @@ const PieChart = (props) => {
   const labels = Object.keys(props.scores).map((player) => {
     return player === 'draw' ? 'Draw' : `${player} Wins`;
   });
-  console.log('tshVsThom', props);
   const scoresData = Object.values(props.scores);
   const colours = Object.keys(props.scores).map(
     (player) => namedColours[player],

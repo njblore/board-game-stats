@@ -48,19 +48,25 @@ const MultiplayerRadial = (props: Props) => {
 
       <div className="button-container">
         <button
-          className="agricola-button"
+          className={`agricola-button ${
+            set === props.twoPlayer ? 'highlighted' : ''
+          }`}
           onClick={() => setSet(props.twoPlayer)}
         >
           Two Player
         </button>
         <button
-          className="agricola-button"
+          className={`agricola-button ${
+            set === props.multiplayer ? 'highlighted' : ''
+          }`}
           onClick={() => setSet(props.multiplayer)}
         >
           Mutliplayer
         </button>
         <button
-          className="agricola-button"
+          className={`agricola-button ${
+            set === props.allGames ? 'highlighted' : ''
+          }`}
           onClick={() => setSet(props.allGames)}
         >
           All Games

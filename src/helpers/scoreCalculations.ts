@@ -1,14 +1,10 @@
 import {
-  AgricolaGameScore,
   GameScore,
   PlayerAllScores,
   PlayerScore,
   SinglePlayerScore,
 } from '../models/game';
-import {
-  AllCategoryScoresForPlayer,
-  IndividualCategoryScores,
-} from './scoreSheet';
+import { AllCategoryScoresForPlayer } from './scoreSheet';
 
 export const totalScoresForGame = (playersArray: PlayerScore[]) => {
   return playersArray.map((player) => {
@@ -49,11 +45,6 @@ export const categoryScoresForEachPlayer = (
     });
     return acc;
   }, {} as AllCategoryScoresForPlayer);
-};
-
-export const getGameCategories = (game: GameScore) => {
-  return game.players[0].scores.map((score) => score['category']);
-  // .filter((category) => category !== 'total');
 };
 
 export const averageScoresFromObject = (

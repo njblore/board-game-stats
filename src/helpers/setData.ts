@@ -14,3 +14,7 @@ export const divideGamesByPlayerCount = (
   });
   return [twoPlayer, multiplayer];
 };
+
+export const getGameCategories = (game: GameScore) => {
+  return game.players[0].scores.map((score) => score['category']);
+};

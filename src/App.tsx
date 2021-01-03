@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
+import './style/wingspan-styles.css';
+import './style/agricola-styles.css';
+import './style/tm-styles.css';
 import AgricolaPage from './Components/AgricolaPage';
 import AgricolaScoreModal from './Components/AgricolaScoreModal';
 import TerraformingMarsPage from './Components/TerraformingMarsPage';

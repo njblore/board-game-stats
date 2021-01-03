@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from 'react';
-
 // Components
 import CategoryScores from './CategoryScores';
 import FinalScoresBar from './ScoresOverTime';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';
 import Stats from './Stats';
-//models
+// Models
 import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
 // Data
 import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
 import wingspancards from '../images/wingspancards.jpeg';
 // Helpers
 import { dateRegex } from '../helpers/date';
+import { scoresForEachPlayer } from '../helpers/scoreCalculations';
 import {
+  divideGamesByPlayerCount,
   getGameCategories,
-  scoresForEachPlayer,
-} from '../helpers/scoreCalculations';
-import { divideGamesByPlayerCount } from '../helpers/setData';
+} from '../helpers/setData';
 
 const WingspanPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
@@ -28,7 +27,7 @@ const WingspanPage = (props: GamePageProps) => {
   useEffect(() => {
     setIsLoading(true);
     setTotals(scoresForEachPlayer(props.games));
-    const [twoPlayer, _] = divideGamesByPlayerCount(props.games);
+    const [twoPlayer] = divideGamesByPlayerCount(props.games);
     setTashVsThom(twoPlayer);
     setCategories(getGameCategories(props.games[0]));
     setIsLoading(false);
@@ -42,7 +41,7 @@ const WingspanPage = (props: GamePageProps) => {
             <img src={wingspanbirdheader} alt="wingspan-header"></img>
           </div>
         </div>
-        <div className="container photo-container">
+        <div className="container wingspan-photo-container">
           <img
             src={wingspancards}
             alt="cards from the game wingspan"

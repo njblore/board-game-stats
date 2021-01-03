@@ -819,7 +819,6 @@ const fs = require("fs");
 
 const convertedCats = scores.tmgames.map((game) => {
   game.players.map((player) => {
-    console.log(player.scores)
     const catScores = Object.entries(player.scores).reduce(
       (acc, [key, value]) => {
         acc.push({ category: key, value: Number(value) });

@@ -99,7 +99,10 @@ const ScatterRelationships = (props) => {
       <Bar data={data} options={options}></Bar>
       <div className="button-container">
         {props.categories.map((cat) => (
-          <button className="agricola-button" onClick={() => setTopic(cat)}>
+          <button
+            className={`agricola-button ${topic === cat ? 'highlighted' : ''}`}
+            onClick={() => setTopic(cat)}
+          >
             {cat}
           </button>
         ))}

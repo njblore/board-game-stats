@@ -1,18 +1,22 @@
 import React, { useEffect, useState } from 'react';
+// Components
 import PieCharts from './PieCharts';
 import FinalScoresBar from './ScoresOverTime';
 import CategoryScores from './CategoryScores';
 import Stats from './Stats';
 import MultiplayerRadial from './MultiplayerRadial';
 import ScatterRelationships from './ScatterRelationships';
+// Models
+import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
+// Data
+import agricola from '../images/agricolaheader.png';
+// Helpers
+import { scoresForEachPlayer } from '../helpers/scoreCalculations';
+import { dateRegex } from '../helpers/date';
 import {
   getGameCategories,
-  scoresForEachPlayer,
-} from '../helpers/scoreCalculations';
-import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
-import agricola from '../images/agricolaheader.png';
-import { dateRegex } from '../helpers/date';
-import { divideGamesByPlayerCount } from '../helpers/setData';
+  divideGamesByPlayerCount,
+} from '../helpers/setData';
 
 const AgricolaPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
