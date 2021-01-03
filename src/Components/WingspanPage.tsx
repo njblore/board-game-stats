@@ -1,44 +1,38 @@
 import React, { useEffect, useState } from 'react';
-import { dateRegex } from '../helpers/date';
-import {
-  getGameCategories,
-  scoresForEachPlayer,
-} from '../helpers/scoreCalculations';
-import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
-import wingspancards from '../images/wingspancards.jpeg';
-import { GameScore, PlayerAllScores } from '../models/game';
+
+// Components
 import CategoryScores from './CategoryScores';
 import FinalScoresBar from './ScoresOverTime';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';
 import Stats from './Stats';
-import { fetchData } from '../helpers/fetchData';
+//models
+import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
+// Data
+import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
+import wingspancards from '../images/wingspancards.jpeg';
+// Helpers
+import { dateRegex } from '../helpers/date';
+import {
+  getGameCategories,
+  scoresForEachPlayer,
+} from '../helpers/scoreCalculations';
+import { divideGamesByPlayerCount } from '../helpers/setData';
 
-interface apiData {
-  wingspanGames: GameScore[];
-}
-
-const WingspanPage = () => {
-  const [allGames, setAllGames] = useState<GameScore[]>();
+const WingspanPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
   const [tashVsThom, setTashVsThom] = useState<GameScore[]>();
   const [categories, setCategories] = useState<string[]>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = `$2b$10$tVk${process.env.REACT_APP_API_KEY}`;
-    const location = process.env.REACT_APP_WINGSPAN_LOCATION;
     setIsLoading(true);
-    fetchData(pword, location).then((data: apiData) => {
-      setAllGames(data.wingspanGames);
-      setTotals(scoresForEachPlayer(data.wingspanGames));
-      setTashVsThom(
-        data.wingspanGames.filter((game) => game.players.length === 2),
-      );
-      setCategories(getGameCategories(data.wingspanGames[0]));
-      setIsLoading(false);
-    });
-  }, []);
+    setTotals(scoresForEachPlayer(props.games));
+    const [twoPlayer, _] = divideGamesByPlayerCount(props.games);
+    setTashVsThom(twoPlayer);
+    setCategories(getGameCategories(props.games[0]));
+    setIsLoading(false);
+  }, [props.games]);
 
   if (!isLoading) {
     return (
@@ -58,17 +52,17 @@ const WingspanPage = () => {
         <Stats
           totals={totals}
           tashVsThom={tashVsThom}
-          allGames={allGames}
+          allGames={props.games}
           gameName={'Wingspan'}
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
         <FinalScoresBar
-          games={allGames.filter((game) => game.date.match(dateRegex))}
+          games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
-        <CategoryScores games={allGames}></CategoryScores>
+        <CategoryScores games={props.games}></CategoryScores>
         <ScatterRelationships
-          allGames={allGames}
+          allGames={props.games}
           categories={categories}
         ></ScatterRelationships>
       </div>

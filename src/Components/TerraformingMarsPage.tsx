@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { dateRegex } from '../helpers/date';
-import { fetchData } from '../helpers/fetchData';
 import {
   getGameCategories,
   scoresForEachPlayer,
 } from '../helpers/scoreCalculations';
+import { divideGamesByPlayerCount } from '../helpers/setData';
 import tmheader from '../images/tmboxheader.png';
-import { GameScore, PlayerAllScores } from '../models/game';
+import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
 import CategoryScores from './CategoryScores';
 import PieCharts from './PieCharts';
 import ScatterRelationships from './ScatterRelationships';
 import FinalScoresBar from './ScoresOverTime';
 import Stats from './Stats';
-interface apiData {
-  tmGames: GameScore[];
-}
-const TerraformingMarsPage = () => {
-  const [allGames, setAllGames] = useState<GameScore[]>();
+
+const TerraformingMarsPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
   const [tashVsThom, setTashVsThom] = useState<GameScore[]>();
   const [multiplayer, setMultiplayer] = useState<GameScore[]>();
@@ -24,18 +21,15 @@ const TerraformingMarsPage = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = `$2b$10$tVk${process.env.REACT_APP_API_KEY}`;
-    const location = process.env.REACT_APP_TM_LOCATION;
     setIsLoading(true);
-    fetchData(pword, location).then((data: apiData) => {
-      setAllGames(data.tmGames);
-      setTotals(scoresForEachPlayer(data.tmGames));
-      setTashVsThom(data.tmGames.filter((game) => game.players.length === 2));
-      setMultiplayer(data.tmGames.filter((game) => game.players.length > 2));
-      setCategories(getGameCategories(data.tmGames[0]));
-      setIsLoading(false);
-    });
-  }, []);
+    setTotals(scoresForEachPlayer(props.games));
+    const [twoPlayer, multiplayer] = divideGamesByPlayerCount(props.games);
+    setTashVsThom(twoPlayer);
+    setMultiplayer(multiplayer);
+    setCategories(getGameCategories(props.games[0]));
+    setIsLoading(false);
+  }, [props.games]);
+
   if (!isLoading) {
     return (
       <div className="page-container">
@@ -48,18 +42,18 @@ const TerraformingMarsPage = () => {
         <Stats
           totals={totals}
           tashVsThom={tashVsThom}
-          allGames={allGames}
+          allGames={props.games}
           multiplayer={multiplayer}
           gameName={'Terraforming Mars'}
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
         <FinalScoresBar
-          games={allGames.filter((game) => game.date.match(dateRegex))}
+          games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
-        <CategoryScores games={allGames}></CategoryScores>
+        <CategoryScores games={props.games}></CategoryScores>
         <ScatterRelationships
-          allGames={allGames}
+          allGames={props.games}
           categories={categories}
         ></ScatterRelationships>
       </div>

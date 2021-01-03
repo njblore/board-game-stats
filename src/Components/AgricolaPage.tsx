@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PieCharts from './PieCharts';
 import FinalScoresBar from './ScoresOverTime';
 import CategoryScores from './CategoryScores';
@@ -9,40 +9,27 @@ import {
   getGameCategories,
   scoresForEachPlayer,
 } from '../helpers/scoreCalculations';
-import { AgricolaGameScore, PlayerAllScores } from '../models/game';
+import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
 import agricola from '../images/agricolaheader.png';
 import { dateRegex } from '../helpers/date';
-import { fetchData } from '../helpers/fetchData';
+import { divideGamesByPlayerCount } from '../helpers/setData';
 
-interface apiData {
-  agricolaGames: AgricolaGameScore[];
-}
-
-const AgricolaPage = () => {
-  const [allGames, setAllGames] = useState<AgricolaGameScore[]>();
+const AgricolaPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
-  const [tashVsThom, setTashVsThom] = useState<AgricolaGameScore[]>();
-  const [multiplayer, setMultiplayer] = useState<AgricolaGameScore[]>();
+  const [tashVsThom, setTashVsThom] = useState<GameScore[]>();
+  const [multiplayer, setMultiplayer] = useState<GameScore[]>();
   const [categories, setCategories] = useState<string[]>();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const pword = `$2b$10$tVk${process.env.REACT_APP_API_KEY}`;
-    const location = process.env.REACT_APP_AGRICOLA_LOCATION;
     setIsLoading(true);
-    fetchData(pword, location).then((data: apiData) => {
-      setAllGames(data.agricolaGames);
-      setTotals(scoresForEachPlayer(data.agricolaGames));
-      setTashVsThom(
-        data.agricolaGames.filter((game) => game.players.length === 2),
-      );
-      setMultiplayer(
-        data.agricolaGames.filter((game) => game.players.length > 2),
-      );
-      setCategories(getGameCategories(data.agricolaGames[0]));
-      setIsLoading(false);
-    });
-  }, []);
+    setTotals(scoresForEachPlayer(props.games));
+    const [twoPlayer, multiplayer] = divideGamesByPlayerCount(props.games);
+    setTashVsThom(twoPlayer);
+    setMultiplayer(multiplayer);
+    setCategories(getGameCategories(props.games[0]));
+    setIsLoading(false);
+  }, [props.games]);
 
   if (!isLoading) {
     return (
@@ -56,23 +43,23 @@ const AgricolaPage = () => {
           totals={totals}
           tashVsThom={tashVsThom}
           multiplayer={multiplayer}
-          allGames={allGames}
+          allGames={props.games}
           gameName={'Agricola'}
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
         <FinalScoresBar
-          games={allGames.filter((game) => game.date.match(dateRegex))}
+          games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
           multiplayer={multiplayer.filter((game) => game.date.match(dateRegex))}
         ></FinalScoresBar>
-        <CategoryScores games={allGames}></CategoryScores>
+        <CategoryScores games={props.games}></CategoryScores>
         <MultiplayerRadial
           multiplayer={multiplayer}
           twoPlayer={tashVsThom}
-          allGames={allGames}
+          allGames={props.games}
         ></MultiplayerRadial>
         <ScatterRelationships
-          allGames={allGames}
+          allGames={props.games}
           categories={categories}
         ></ScatterRelationships>
       </div>

@@ -1,6 +1,6 @@
 {
-  "homepage": "http://njblore.github.io/project-yule",
-  "name": "project-yule",
+  "homepage": "http://njblore.github.io/board-game-stats",
+  "name": "board-game-stats",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,3 +1,7 @@
+export interface GamePageProps {
+  games: GameScore[];
+}
+
 export interface GameScore {
   players: PlayerScore[];
   date: string;
