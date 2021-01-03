@@ -1,5 +1,20 @@
 .scatter-container {
   background: white;
-  border: 2px solid rgb(54, 174, 201);
   border-radius: 5px;
+}
+
+/* TM */
+.tm-scatter {
+  border: 15px solid transparent;
+  border-image: url('../../images/terraformingmars/spacesky.jpg') 30 stretch;
+}
+
+/* Agricola */
+.agricola-scatter {
+  border: 2px solid rgb(54, 174, 201);
+}
+
+/* Wingspan */
+.wingspan-scatter {
+  border: 2px solid rgb(54, 174, 201);
 }

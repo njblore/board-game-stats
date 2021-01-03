@@ -49,11 +49,12 @@ const AgricolaPage = (props: GamePageProps) => {
           gameName={'Agricola'}
           stylePrefix={'agricola'}
         ></Stats>
-        <PieCharts tashVsThom={tashVsThom}></PieCharts>
+        <PieCharts tashVsThom={tashVsThom} stylePrefix={'agricola'}></PieCharts>
         <ScoresOverTime
           games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
           multiplayer={multiplayer.filter((game) => game.date.match(dateRegex))}
+          stylePrefix={'agricola'}
         ></ScoresOverTime>
         <CategoryScores
           games={props.games}
@@ -67,6 +68,7 @@ const AgricolaPage = (props: GamePageProps) => {
         <ScatterRelationships
           allGames={props.games}
           categories={categories}
+          stylePrefix={'agricola'}
         ></ScatterRelationships>
       </div>
     );

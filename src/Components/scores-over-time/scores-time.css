@@ -1,5 +1,20 @@
 .scores-time-container {
   background: white;
-  border: 2px solid rgb(255, 137, 35);
   border-radius: 5px;
+}
+
+/* TM */
+.tm-scores-time {
+  border: 15px solid transparent;
+  border-image: url('../../images/terraformingmars/spacesky.jpg') 30 stretch;
+}
+
+/* Agricola */
+.agricola-scores-time {
+  border: 2px solid rgb(255, 99, 216);
+}
+
+/* Wingspan */
+.wingspan-scores-time {
+  border: 2px solid rgb(255, 99, 216);
 }

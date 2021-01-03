@@ -4,7 +4,6 @@
   align-items: center;
   justify-content: space-around;
   background: white;
-  border: 2px solid rgb(255, 132, 105);
   border-radius: 5px;
 }
 
@@ -17,7 +16,31 @@
   align-items: center;
   justify-content: space-around;
 }
-.win-stats {
+
+/* TM */
+.tm-pie {
+  border: 15px solid transparent;
+  border-image: url('../../images/terraformingmars/spacesky.jpg') 30 stretch;
+}
+.tm-win-stats {
+  font-size: 1em;
+  font-family: 'prototype';
+}
+
+/* Wingspan */
+.wingspan-pie {
+  border: 2px solid rgb(255, 132, 105);
+}
+.wingspan-win-stats {
+  font-size: 1em;
+  font-family: 'ralewayItalic';
+}
+
+/* Agricola */
+.agricola-pie {
+  border: 2px solid rgb(255, 132, 105);
+}
+.agricola-win-stats {
   font-size: 1em;
   font-family: 'ralewayItalic';
 }

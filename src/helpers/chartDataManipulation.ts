@@ -1,10 +1,7 @@
-import { AgricolaGameScore } from '../models/game';
+import { GameScore } from '../models/game';
 import { totalScore } from './scoreCalculations';
 
-export const dataPointForTopic = (
-  topic: string,
-  games: AgricolaGameScore[],
-) => {
+export const dataPointForTopic = (topic: string, games: GameScore[]) => {
   return games.reduce((acc, game) => {
     game.players.forEach((player) => {
       acc.push({

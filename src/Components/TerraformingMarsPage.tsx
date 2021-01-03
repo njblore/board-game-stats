@@ -48,14 +48,16 @@ const TerraformingMarsPage = (props: GamePageProps) => {
           gameName={'Terraforming Mars'}
           stylePrefix={'tm'}
         ></Stats>
-        <PieCharts tashVsThom={tashVsThom}></PieCharts>
+        <PieCharts tashVsThom={tashVsThom} stylePrefix={'tm'}></PieCharts>
         <ScoresOverTime
           games={props.games.filter((game) => game.date.match(dateRegex))}
+          stylePrefix={'tm'}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
         ></ScoresOverTime>
         <CategoryScores games={props.games} stylePrefix={'tm'}></CategoryScores>
         <ScatterRelationships
           allGames={props.games}
+          stylePrefix={'tm'}
           categories={categories}
         ></ScatterRelationships>
       </div>

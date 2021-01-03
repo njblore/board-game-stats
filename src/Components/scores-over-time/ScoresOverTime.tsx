@@ -7,7 +7,14 @@ import { dateFromString } from '../../helpers/date';
 import { namedColours } from '../../models/agricola/colourScheme';
 import './scores-time.css';
 
-const ScoresOverTime = (props) => {
+interface Props {
+  twoPlayer: GameScore[];
+  multiplayer?: GameScore[];
+  games: GameScore[];
+  stylePrefix: string;
+}
+
+const ScoresOverTime = (props: Props) => {
   const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);
 
   const players = getPlayers(pool);
@@ -54,7 +61,9 @@ const ScoresOverTime = (props) => {
   };
 
   return (
-    <div className="scores-time-container grid-six container">
+    <div
+      className={`scores-time-container grid-six ${props.stylePrefix}-scores-time`}
+    >
       <header className="header">Scores Over Time</header>
       {props.multiplayer !== undefined && (
         <div className="button-container">

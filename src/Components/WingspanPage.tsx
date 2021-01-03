@@ -52,10 +52,11 @@ const WingspanPage = (props: GamePageProps) => {
           gameName={'Wingspan'}
           stylePrefix="wingspan"
         ></Stats>
-        <PieCharts tashVsThom={tashVsThom}></PieCharts>
+        <PieCharts tashVsThom={tashVsThom} stylePrefix="wingspan"></PieCharts>
         <ScoresOverTime
           games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
+          stylePrefix="wingspan"
         ></ScoresOverTime>
         <CategoryScores
           games={props.games}
@@ -64,6 +65,7 @@ const WingspanPage = (props: GamePageProps) => {
         <ScatterRelationships
           allGames={props.games}
           categories={categories}
+          stylePrefix="wingspan"
         ></ScatterRelationships>
       </div>
     );
