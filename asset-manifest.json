@@ -1,27 +1,29 @@
 {
   "files": {
-    "main.css": "/project-yule/static/css/main.c47d20bd.chunk.css",
-    "main.js": "/project-yule/static/js/main.08d9d9ca.chunk.js",
-    "main.js.map": "/project-yule/static/js/main.08d9d9ca.chunk.js.map",
-    "runtime-main.js": "/project-yule/static/js/runtime-main.3bae13a4.js",
-    "runtime-main.js.map": "/project-yule/static/js/runtime-main.3bae13a4.js.map",
-    "static/js/2.18e678da.chunk.js": "/project-yule/static/js/2.18e678da.chunk.js",
-    "static/js/2.18e678da.chunk.js.map": "/project-yule/static/js/2.18e678da.chunk.js.map",
-    "index.html": "/project-yule/index.html",
-    "precache-manifest.1337a2f033bd1a8ab4408f2f37b94257.js": "/project-yule/precache-manifest.1337a2f033bd1a8ab4408f2f37b94257.js",
-    "service-worker.js": "/project-yule/service-worker.js",
-    "static/css/main.c47d20bd.chunk.css.map": "/project-yule/static/css/main.c47d20bd.chunk.css.map",
-    "static/js/2.18e678da.chunk.js.LICENSE.txt": "/project-yule/static/js/2.18e678da.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/project-yule/static/media/Raleway-Regular.75b4247f.ttf",
-    "static/media/agricolaheader.png": "/project-yule/static/media/agricolaheader.a09a232b.png",
-    "static/media/tmboxheader.png": "/project-yule/static/media/tmboxheader.7c6f7153.png",
-    "static/media/wingspanbirdheader.jpeg": "/project-yule/static/media/wingspanbirdheader.9d57b42b.jpeg",
-    "static/media/wingspancards.jpeg": "/project-yule/static/media/wingspancards.916892aa.jpeg"
+    "main.css": "/board-game-stats/static/css/main.a8748111.chunk.css",
+    "main.js": "/board-game-stats/static/js/main.fbf46962.chunk.js",
+    "main.js.map": "/board-game-stats/static/js/main.fbf46962.chunk.js.map",
+    "runtime-main.js": "/board-game-stats/static/js/runtime-main.1d683704.js",
+    "runtime-main.js.map": "/board-game-stats/static/js/runtime-main.1d683704.js.map",
+    "static/js/2.3d2adf1d.chunk.js": "/board-game-stats/static/js/2.3d2adf1d.chunk.js",
+    "static/js/2.3d2adf1d.chunk.js.map": "/board-game-stats/static/js/2.3d2adf1d.chunk.js.map",
+    "index.html": "/board-game-stats/index.html",
+    "precache-manifest.afa0e5551b2e2607d32569033aceb733.js": "/board-game-stats/precache-manifest.afa0e5551b2e2607d32569033aceb733.js",
+    "service-worker.js": "/board-game-stats/service-worker.js",
+    "static/css/main.a8748111.chunk.css.map": "/board-game-stats/static/css/main.a8748111.chunk.css.map",
+    "static/js/2.3d2adf1d.chunk.js.LICENSE.txt": "/board-game-stats/static/js/2.3d2adf1d.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/board-game-stats/static/media/Raleway-Regular.75b4247f.ttf",
+    "static/media/agricolaheader.png": "/board-game-stats/static/media/agricolaheader.a09a232b.png",
+    "static/media/stats.css": "/board-game-stats/static/media/deepsky.964e7c05.jpeg",
+    "static/media/scatter.css": "/board-game-stats/static/media/spacesky.4021430f.jpg",
+    "static/media/tmboxheader.png": "/board-game-stats/static/media/tmboxheader.7c6f7153.png",
+    "static/media/wingspanbirdheader.jpeg": "/board-game-stats/static/media/wingspanbirdheader.9d57b42b.jpeg",
+    "static/media/wingspancards.jpeg": "/board-game-stats/static/media/wingspancards.916892aa.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.3bae13a4.js",
-    "static/js/2.18e678da.chunk.js",
-    "static/css/main.c47d20bd.chunk.css",
-    "static/js/main.08d9d9ca.chunk.js"
+    "static/js/runtime-main.1d683704.js",
+    "static/js/2.3d2adf1d.chunk.js",
+    "static/css/main.a8748111.chunk.css",
+    "static/js/main.fbf46962.chunk.js"
   ]
 }
