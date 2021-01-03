@@ -1,0 +1,9 @@
+.radial-container {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 2px solid rgb(30, 187, 108);
+  border-radius: 5px;
+  padding-bottom: 10px;
+}

@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import { Radar } from 'react-chartjs-2';
-import { getPlayers } from '../helpers/getPlayers';
-import { PlayerCategoryScores } from '../helpers/scoreSheet';
-import { categoryScoresForEachPlayer } from '../helpers/scoreCalculations';
-import { GameScore } from '../models/game';
-import { getGameCategories } from '../helpers/setData';
+import { getPlayers } from '../../helpers/getPlayers';
+import { PlayerCategoryScores } from '../../helpers/scoreSheet';
+import { categoryScoresForEachPlayer } from '../../helpers/scoreCalculations';
+import { GameScore } from '../../models/game';
+import { getGameCategories } from '../../helpers/setData';
+import './category.css';
 
 interface Props {
   games: GameScore[];
+  stylePrefix: string;
 }
 
 const CategoryScores = (props: Props) => {
@@ -65,12 +67,18 @@ const CategoryScores = (props: Props) => {
   };
 
   return (
-    <div className="category-container container">
-      <header className="header">Category Breakdown</header>
+    <div
+      className={`grid-four ${props.stylePrefix}-category category-container`}
+    >
+      <header className={`${props.stylePrefix}-header header`}>
+        Category Breakdown
+      </header>
       <div className="button-container">
         {players.map((p) => (
           <button
-            className={`agricola-button ${p === player ? 'highlighted' : ''}`}
+            className={`state-button ${p === player ? 'highlighted' : ''} ${
+              props.stylePrefix
+            }-button`}
             onClick={() => setPlayer(p)}
           >
             {p}

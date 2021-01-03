@@ -1,0 +1,20 @@
+.category-container {
+  background: white;
+  border-radius: 5px;
+}
+
+/* TM */
+.tm-category {
+  border: 15px solid transparent;
+  border-image: url('../../images/terraformingmars/galaxy.jpeg') 30 stretch;
+}
+
+/* Agricola */
+.agricola-category {
+  border: 2px solid rgb(255, 99, 216);
+}
+
+/* Wingspan */
+.wingspan-category {
+  border: 2px solid rgb(255, 99, 216);
+}

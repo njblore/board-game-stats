@@ -1,10 +1,12 @@
 import React from 'react';
-import { GameScore, PlayerAllScores } from '../models/game';
+import { GameScore, PlayerAllScores } from '../../models/game';
+import './stats.css';
 
 interface Props {
   totals: PlayerAllScores;
   tashVsThom: GameScore[];
   gameName: string;
+  stylePrefix: string;
   multiplayer?: GameScore[];
   allGames?: GameScore[];
 }
@@ -34,42 +36,61 @@ const Stats = (props: Props) => {
 
   let averageScore = overallTotal / scoreCount;
   return (
-    <div className="stats-container container">
-      <header className="header stats-header">
+    <div className={`${props.stylePrefix}-stats stats-container grid-one`}>
+      <header className={`${props.stylePrefix}-header header stats-header`}>
         Some stats from our {props.gameName} Games
       </header>
       <p>
         Total Games Recorded:
-        <span className="stat-text"> {props.allGames.length}</span>
+        <span className={`${props.stylePrefix}-stat-text`}>
+          {' '}
+          {props.allGames.length}
+        </span>
       </p>
       <p>
         Of those games,
-        <span className="stat-text"> {props.tashVsThom.length}</span> were 2
-        player
+        <span className={`${props.stylePrefix}-stat-text`}>
+          {' '}
+          {props.tashVsThom.length}
+        </span>{' '}
+        were 2 player
       </p>
 
       {props.multiplayer !== undefined && (
         <p>
-          And <span className="stat-text"> {props.multiplayer.length}</span>{' '}
+          And{' '}
+          <span className={`${props.stylePrefix}-stat-text`}>
+            {' '}
+            {props.multiplayer.length}
+          </span>{' '}
           were multiplayer.
         </p>
       )}
 
       <p>
         The Highest score from all games was
-        <span className="stat-text"> {max.score}</span> scored by the
-        indefatigable
-        <span className="stat-text"> {max.name}</span>!
+        <span className={`${props.stylePrefix}-stat-text`}>
+          {' '}
+          {max.score}
+        </span>{' '}
+        scored by the indefatigable
+        <span className={`${props.stylePrefix}-stat-text`}> {max.name}</span>!
       </p>
       <p>
         And the lowest score of all time was
-        <span className="stat-text"> {min.score}</span> scored by the
-        unstoppable
-        <span className="stat-text"> {min.name}</span>!
+        <span className={`${props.stylePrefix}-stat-text`}>
+          {' '}
+          {min.score}
+        </span>{' '}
+        scored by the unstoppable
+        <span className={`${props.stylePrefix}-stat-text`}> {min.name}</span>!
       </p>
       <p>
         The average score across all games is a respectable
-        <span className="stat-text"> {averageScore.toFixed(2)}</span>
+        <span className={`${props.stylePrefix}-stat-text`}>
+          {' '}
+          {averageScore.toFixed(2)}
+        </span>
       </p>
     </div>
   );

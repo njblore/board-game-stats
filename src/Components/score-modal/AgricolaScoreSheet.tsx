@@ -2,8 +2,8 @@ import React from 'react';
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-} from '../models/agricola/playerScore';
-import { PlayerScore } from '../models/game';
+} from '../../models/agricola/playerScore';
+import { PlayerScore } from '../../models/game';
 
 interface Props {
   playerScores: PlayerScore;

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { dateFromString, dateRegex } from '../helpers/date';
+import { dateFromString, dateRegex } from '../../helpers/date';
 import {
   AgricolaGameScore,
   PlayerScore,
   SinglePlayerScore,
-} from '../models/game';
+} from '../../models/game';
 import {
   blankBaseGameScoreSheet,
   blankFarmersOfTheMoorScoreSheet,
-} from '../models/agricola/playerScore';
-import AgricolaScoreSheet from './AgricolaScoreSheet';
+} from '../../models/agricola/playerScore';
 import ConfirmScoresModal from './ConfirmModal';
+import AgricolaScoreSheet from './AgricolaScoreSheet';
 
 interface PropsInterface {
   hideModal;

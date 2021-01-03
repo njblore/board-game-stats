@@ -1,0 +1,23 @@
+.pie-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: white;
+  border: 2px solid rgb(255, 132, 105);
+  border-radius: 5px;
+}
+
+.pie-grid {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+}
+.win-stats {
+  font-size: 1em;
+  font-family: 'ralewayItalic';
+}

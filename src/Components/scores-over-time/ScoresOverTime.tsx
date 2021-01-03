@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Line } from 'react-chartjs-2';
-import { getPlayers } from '../helpers/getPlayers';
-import { scoresForEachPlayer } from '../helpers/scoreCalculations';
-import { GameScore, PlayerAllScores } from '../models/game';
-import { dateFromString } from '../helpers/date';
-import { namedColours } from '../models/agricola/colourScheme';
+import { getPlayers } from '../../helpers/getPlayers';
+import { scoresForEachPlayer } from '../../helpers/scoreCalculations';
+import { GameScore, PlayerAllScores } from '../../models/game';
+import { dateFromString } from '../../helpers/date';
+import { namedColours } from '../../models/agricola/colourScheme';
+import './scores-time.css';
 
-const FinalScoresBar = (props) => {
+const ScoresOverTime = (props) => {
   const [pool, setPool] = useState<GameScore[]>(props.twoPlayer);
 
   const players = getPlayers(pool);
@@ -53,12 +54,12 @@ const FinalScoresBar = (props) => {
   };
 
   return (
-    <div className="bar-container container">
+    <div className="scores-time-container grid-six container">
       <header className="header">Scores Over Time</header>
       {props.multiplayer !== undefined && (
         <div className="button-container">
           <button
-            className={`agricola-button ${
+            className={`state-button ${
               pool === props.twoPlayer ? 'highlighted' : ''
             }`}
             onClick={() => setPool(props.twoPlayer)}
@@ -67,7 +68,7 @@ const FinalScoresBar = (props) => {
           </button>
 
           <button
-            className={`agricola-button ${
+            className={`state-button ${
               pool === props.multiplayer ? 'highlighted' : ''
             }`}
             onClick={() => setPool(props.multiplayer)}
@@ -76,7 +77,7 @@ const FinalScoresBar = (props) => {
           </button>
 
           <button
-            className={`agricola-button ${
+            className={`state-button ${
               pool === props.games ? 'highlighted' : ''
             }`}
             onClick={() => setPool(props.games)}
@@ -90,4 +91,4 @@ const FinalScoresBar = (props) => {
   );
 };
 
-export default FinalScoresBar;
+export default ScoresOverTime;

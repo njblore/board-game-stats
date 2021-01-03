@@ -8,3 +8,10 @@
   border: 2px solid rgb(30, 187, 108);
   border-radius: 5px;
 }
+
+.wingspan-body {
+  font-family: 'Courier New', Courier, monospace;
+}
+.wingspan-button {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}

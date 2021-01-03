@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SinglePlayerScore } from '../models/game';
+import { SinglePlayerScore } from '../../models/game';
 
 interface PropsInterface {
   cancel;

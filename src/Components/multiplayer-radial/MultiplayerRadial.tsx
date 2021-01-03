@@ -3,9 +3,10 @@ import { Polar } from 'react-chartjs-2';
 import {
   scoresForEachPlayer,
   averageScoresFromObject,
-} from '../helpers/scoreCalculations';
-import { namedColours } from '../models/agricola/colourScheme';
-import { GameScore, SinglePlayerScore } from '../models/game';
+} from '../../helpers/scoreCalculations';
+import { namedColours } from '../../models/agricola/colourScheme';
+import { GameScore, SinglePlayerScore } from '../../models/game';
+import './multiplayer-radial.css';
 
 interface Props {
   multiplayer: GameScore[];
@@ -43,12 +44,12 @@ const MultiplayerRadial = (props: Props) => {
     },
   };
   return (
-    <div className="radial-container container">
+    <div className="radial-container container grid-two">
       <header className="header">Average Game Scores</header>
 
       <div className="button-container">
         <button
-          className={`agricola-button ${
+          className={`state-button ${
             set === props.twoPlayer ? 'highlighted' : ''
           }`}
           onClick={() => setSet(props.twoPlayer)}
@@ -56,7 +57,7 @@ const MultiplayerRadial = (props: Props) => {
           Two Player
         </button>
         <button
-          className={`agricola-button ${
+          className={`state-button ${
             set === props.multiplayer ? 'highlighted' : ''
           }`}
           onClick={() => setSet(props.multiplayer)}
@@ -64,7 +65,7 @@ const MultiplayerRadial = (props: Props) => {
           Mutliplayer
         </button>
         <button
-          className={`agricola-button ${
+          className={`state-button ${
             set === props.allGames ? 'highlighted' : ''
           }`}
           onClick={() => setSet(props.allGames)}

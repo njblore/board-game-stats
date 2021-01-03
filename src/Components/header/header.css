@@ -1,0 +1,22 @@
+.page-header {
+  font-size: 1.3em;
+  color: #bd7b1b;
+  font-family: 'dominica';
+  align-self: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.image-container {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+}

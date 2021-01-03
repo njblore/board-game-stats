@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 // Components
-import CategoryScores from './CategoryScores';
-import PieCharts from './PieCharts';
-import ScatterRelationships from './ScatterRelationships';
-import FinalScoresBar from './ScoresOverTime';
-import Stats from './Stats';
+import CategoryScores from './category-scores/CategoryScores';
+import PieCharts from './pie-chart/PieCharts';
+import ScatterRelationships from './scatter-relationships/ScatterRelationships';
+import ScoresOverTime from './scores-over-time/ScoresOverTime';
+import Stats from './stats/Stats';
 // Models
 import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
 // Data
@@ -16,6 +16,7 @@ import {
   getGameCategories,
   divideGamesByPlayerCount,
 } from '../helpers/setData';
+import Header from './header/header';
 
 const TerraformingMarsPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
@@ -36,12 +37,8 @@ const TerraformingMarsPage = (props: GamePageProps) => {
 
   if (!isLoading) {
     return (
-      <div className="page-container">
-        <div className="page-header header">
-          <div className="image-container">
-            <img src={tmheader} alt="terraforming-mars-header"></img>
-          </div>
-        </div>
+      <div className="page-container tm-body">
+        <Header imageUrl={tmheader}></Header>
         <div className="container"></div>
         <Stats
           totals={totals}
@@ -49,13 +46,14 @@ const TerraformingMarsPage = (props: GamePageProps) => {
           allGames={props.games}
           multiplayer={multiplayer}
           gameName={'Terraforming Mars'}
+          stylePrefix={'tm'}
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
-        <FinalScoresBar
+        <ScoresOverTime
           games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
-        ></FinalScoresBar>
-        <CategoryScores games={props.games}></CategoryScores>
+        ></ScoresOverTime>
+        <CategoryScores games={props.games} stylePrefix={'tm'}></CategoryScores>
         <ScatterRelationships
           allGames={props.games}
           categories={categories}

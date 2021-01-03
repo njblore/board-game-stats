@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 // Components
-import CategoryScores from './CategoryScores';
-import FinalScoresBar from './ScoresOverTime';
-import PieCharts from './PieCharts';
-import ScatterRelationships from './ScatterRelationships';
-import Stats from './Stats';
+import CategoryScores from './category-scores/CategoryScores';
+import ScoresOverTime from './scores-over-time/ScoresOverTime';
+import PieCharts from './pie-chart/PieCharts';
+import ScatterRelationships from './scatter-relationships/ScatterRelationships';
+import Stats from './stats/Stats';
 // Models
 import { GamePageProps, GameScore, PlayerAllScores } from '../models/game';
 // Data
-import wingspanbirdheader from '../images/wingspanbirdheader.jpeg';
+import wingspanheader from '../images/wingspanbirdheader.jpeg';
 import wingspancards from '../images/wingspancards.jpeg';
 // Helpers
 import { dateRegex } from '../helpers/date';
@@ -17,6 +17,7 @@ import {
   divideGamesByPlayerCount,
   getGameCategories,
 } from '../helpers/setData';
+import Header from './header/header';
 
 const WingspanPage = (props: GamePageProps) => {
   const [totals, setTotals] = useState<PlayerAllScores>();
@@ -35,12 +36,8 @@ const WingspanPage = (props: GamePageProps) => {
 
   if (!isLoading) {
     return (
-      <div className="page-container">
-        <div className="page-header header">
-          <div className="image-container">
-            <img src={wingspanbirdheader} alt="wingspan-header"></img>
-          </div>
-        </div>
+      <div className="page-container wingspan-body">
+        <Header imageUrl={wingspanheader}></Header>
         <div className="container wingspan-photo-container">
           <img
             src={wingspancards}
@@ -53,13 +50,17 @@ const WingspanPage = (props: GamePageProps) => {
           tashVsThom={tashVsThom}
           allGames={props.games}
           gameName={'Wingspan'}
+          stylePrefix="wingspan"
         ></Stats>
         <PieCharts tashVsThom={tashVsThom}></PieCharts>
-        <FinalScoresBar
+        <ScoresOverTime
           games={props.games.filter((game) => game.date.match(dateRegex))}
           twoPlayer={tashVsThom.filter((game) => game.date.match(dateRegex))}
-        ></FinalScoresBar>
-        <CategoryScores games={props.games}></CategoryScores>
+        ></ScoresOverTime>
+        <CategoryScores
+          games={props.games}
+          stylePrefix="wingspan"
+        ></CategoryScores>
         <ScatterRelationships
           allGames={props.games}
           categories={categories}
@@ -71,7 +72,7 @@ const WingspanPage = (props: GamePageProps) => {
       <div className="page-container">
         <div className="page-header header">
           <div className="image-container">
-            <img src={wingspanbirdheader} alt="wingspan-header"></img>
+            <img src={wingspanheader} alt="wingspan-header"></img>
           </div>
         </div>
         <div>loading...</div>

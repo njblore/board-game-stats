@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Bar } from 'react-chartjs-2';
-import { dataPointForTopic } from '../helpers/chartDataManipulation';
-import { colours } from '../models/agricola/colourScheme';
+import { dataPointForTopic } from '../../helpers/chartDataManipulation';
+import { colours } from '../../models/agricola/colourScheme';
+import './scatter.css';
 
 const ScatterRelationships = (props) => {
   const [topic, setTopic] = useState(props.categories[0]);
@@ -94,13 +95,13 @@ const ScatterRelationships = (props) => {
   };
 
   return (
-    <div className="scatter-container container">
+    <div className="scatter-container grid-five container">
       <header className="header">Scattered Relationships</header>
       <Bar data={data} options={options}></Bar>
       <div className="button-container">
         {props.categories.map((cat) => (
           <button
-            className={`agricola-button ${topic === cat ? 'highlighted' : ''}`}
+            className={`state-button ${topic === cat ? 'highlighted' : ''}`}
             onClick={() => setTopic(cat)}
           >
             {cat}

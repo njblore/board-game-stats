@@ -1,0 +1,40 @@
+.stats-container {
+  text-align: center;
+  color: darkslategrey;
+  background: white;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.1em;
+}
+.stats-header {
+  color: black;
+  font-size: 1.3em;
+}
+
+/* TM */
+.tm-stat-text {
+  font-family: 'nasa';
+  color: orangered;
+}
+.tm-stats {
+  border: 15px solid transparent;
+  border-image: url('../../images/terraformingmars/deepsky.jpeg') 30 stretch;
+}
+
+/* Agricola */
+.agricola-stat-text {
+  font-family: 'ralewayItalic';
+  color: green;
+}
+.agricola-stats {
+  border: 2px solid rgb(255, 205, 18);
+}
+
+/* Wingspan */
+.wingspan-stat-text {
+  font-family: 'ralewayItalic';
+  color: blueviolet;
+}
+.wingspan-stats {
+  border: 2px solid rgb(255, 205, 18);
+}

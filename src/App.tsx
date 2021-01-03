@@ -4,7 +4,7 @@ import './style/wingspan-styles.css';
 import './style/agricola-styles.css';
 import './style/tm-styles.css';
 import AgricolaPage from './Components/AgricolaPage';
-import AgricolaScoreModal from './Components/AgricolaScoreModal';
+import AgricolaScoreModal from './Components/score-modal/AgricolaScoreModal';
 import TerraformingMarsPage from './Components/TerraformingMarsPage';
 import WingspanPage from './Components/WingspanPage';
 import { fetchData } from './helpers/fetchData';
